@@ -9,3 +9,10 @@ Mandrake,51,27,23
 Roller,40,28,25
 Clawfly,65,45,29
 Warbull,140,52,33
+Ragelope,330,45,26
+Kuyutha,350,48,27
+Stalker,600,72,38
+Wolf,260,51,29
+Skoll,400,54,30
+Golem,7000,200,120
+Fenrir,1200,96,46
