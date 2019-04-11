@@ -82,6 +82,14 @@ struct enemy* parse_enemy(int line)
 	return init_enemy(name, atoi(hp), atoi(at), atoi(df));
 }
 
+// Function: remove_enemy
+// Return: void
+// Description: Frees an allocated enemy
+void remove_enemy(struct enemy *e)
+{
+	free(e);
+}
+
 // Function: print_enemy
 // Return: void
 // Description: Prints a given enemy structure
@@ -98,4 +106,5 @@ int main()
 	//init_enemy("Treerat", 19, 10, 14);
 	struct enemy *e = parse_enemy(Golem_e);
 	print_enemy(e);
+	remove_enemy(e);
 }
