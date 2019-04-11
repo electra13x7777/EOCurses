@@ -1,0 +1,11 @@
+Treerat,19,10,14
+Woodfly,19,11,14
+Mole,23,12,15
+Clawbug,45,25,16
+Venomfly,41,22,18
+Hare,38,23,19
+Fender,55,36,23
+Mandrake,51,27,23
+Roller,40,28,25
+Clawfly,65,45,29
+Warbull,140,52,33
