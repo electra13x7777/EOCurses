@@ -25,22 +25,10 @@ enum classpos
 	HEX = 8,
 	PRO = 9
 };
-/*
-	// Main Stats //
-	//int hp;
-	//int tp; // tp
-	int str; // strength
-	int tec; // technique
-	int vit; // vitality
-	int agi; // agility
-	int luc; // luck
-	*/
-	// Battle Stats //
-	//int atk; // attack
-	//int def; // defense
-	// Equipment //
-	/*int e1; // slot 1
-	int e2; // slot 2
-	int e3; // slot 3
-	int e4; // slot 4*/
 
+// Class Functions //
+struct class* init_class(char* name, int lv, int hp, int tp, int st, int te,
+		int vi, int ag, int lu, int e1, int e2, int e3, int e4);
+struct class* create_class();
+void remove_class();
+void print_class(struct class *c);

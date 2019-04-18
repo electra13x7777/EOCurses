@@ -38,3 +38,9 @@ enum enemyval
 	Golem_e = 17,
 	Fenrir_e = 18
 };
+
+// Enemy Functions //
+struct enemy* init_enemy(char* name, int hp, int at, int df);
+struct enemy* parse_enemy(int line);
+void remove_enemy(struct enemy *e);
+void print_enemy(struct enemy *e);
