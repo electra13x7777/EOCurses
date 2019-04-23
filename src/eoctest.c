@@ -55,6 +55,20 @@ void test_class_creator()
 	remove_class(c);
 }
 
+// Test Class With Equip //
+void test_class_with_equip()
+{
+	struct class *c = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39);
+	printf("CLASS\n");
+	print_class(c);
+	printf("EQUIP\n");
+	if(c->equipment[0] != NULL)
+	{
+		print_equip(c->equipment[0]);
+	}
+	remove_class(c);
+}
+
 // Simple Battle Simulation //
 void sim()
 {
@@ -118,7 +132,8 @@ int main()
 	printf("2 | Test Equip Parser\n");
 	printf("3 | Test Equip Creator\n");
 	printf("4 | Test Class Creator\n");
-	printf("5 | Test Battle Simulation\n");
+	printf("5 | Test Class With Equip\n");
+	printf("6 | Test Battle Simulation\n");
 	printf("0 | Exit Test Suite\n");
 	while(1)
 	{
@@ -147,6 +162,10 @@ int main()
 			test_class_creator();
 		}
 		if(t == 5)
+		{
+			test_class_with_equip();
+		}
+		if(t == 6)
 		{
 			sim();
 		}
