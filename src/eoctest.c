@@ -10,8 +10,9 @@
 #include <unistd.h>
 #include <time.h>
 
-#include "enemy.h"
 #include "class.h"
+#include "equip.h"
+#include "enemy.h"
 #include "attack.h"
 
 #define BUFFER 999
@@ -27,6 +28,25 @@ void test_enemy_parser()
 	remove_enemy(e);
 }
 
+// Tests Equip Parsing //
+void test_equip_parser()
+{
+	int val;
+	printf("Please enter an integer value (see equip.h for enum): ");
+	scanf("%d", &val);
+	struct equip *e = parse_equip(val);
+	print_equip(e);
+	remove_equip(e);
+}
+
+// Tests Manual Equip Creation //
+void test_equip_creator()
+{
+	struct equip *e = create_equip();
+	print_equip(e);
+	remove_equip(e);
+}
+
 // Tests Manual Class Creation //
 void test_class_creator()
 {
@@ -40,7 +60,7 @@ void sim()
 {
 	int turn = 1;
 	clock_t t = clock();
-	struct class *l = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39, 45, 20, 0, 0);
+	struct class *l = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39);
 	print_class(l);
 	printf("\n");
 	struct enemy *e = parse_enemy(Fenrir_e);
@@ -95,8 +115,10 @@ int main()
 	int t;
 	printf("EOCALC TEST SUITE\n");
 	printf("1 | Test Enemy Parser\n");
-	printf("2 | Test Class Creator\n");
-	printf("3 | Test Battle Simulation\n");
+	printf("2 | Test Equip Parser\n");
+	printf("3 | Test Equip Creator\n");
+	printf("4 | Test Class Creator\n");
+	printf("5 | Test Battle Simulation\n");
 	printf("0 | Exit Test Suite\n");
 	while(1)
 	{
@@ -114,9 +136,17 @@ int main()
 		}
 		if(t == 2)
 		{
-			test_class_creator();
+			test_equip_parser();
 		}
 		if(t == 3)
+		{
+			test_equip_creator();
+		}
+		if(t == 4)
+		{
+			test_class_creator();
+		}
+		if(t == 5)
 		{
 			sim();
 		}

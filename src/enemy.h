@@ -3,6 +3,8 @@
 //
 // Description: Prototypes enemy structs for Etrian Odyssey 1
 
+#define EOEF "enemies.txt"
+
 // Struct: enemy
 //
 // Description: Stores name and relative stats for an enemy

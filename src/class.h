@@ -7,7 +7,8 @@ struct __attribute__((__packed__)) class
 {
 	char* name; // class name
 	int stats[7]; //hp,tp,str,tec,vit,agi,luc
-	int equip[4]; // Weapons, Shields, Armor, Accesories
+	struct equip* equipment[4];
+	//int equip[4]; // Weapons, Shields, Armor, Accesories
 	int lv; // level
 	int atk; // attack
 	int def; // defense
@@ -28,7 +29,8 @@ enum classpos
 
 // Class Functions //
 struct class* init_class(char* name, int lv, int hp, int tp, int st, int te,
-		int vi, int ag, int lu, int e1, int e2, int e3, int e4);
+		int vi, int ag, int lu);
 struct class* create_class();
+void add_equip(struct class *c, struct equip *e, int pos);
 void remove_class();
 void print_class(struct class *c);
