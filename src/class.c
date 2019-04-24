@@ -62,19 +62,86 @@ struct class* init_class(char *name, int lv, int hp, int tp, int st, int te,
 	new->stats[4] = vi;
 	new->stats[5] = ag;
 	new->stats[6] = lu;
-	// set equips
-	/*
-	new->equip[0] = e1;
-	new->equip[1] = e2;
-	new->equip[2] = e3;
-	new->equip[3] = e4;
-*/
 	// set battle stats
 	new->atk = new->stats[2];
 	new->def = new->stats[4];
 	// add equip
 	add_equip(new, parse_equip(1), 1);
 	return new;
+}
+
+// Function: parse_class
+// Return: struct class*
+// Decription: Parses a given file pointer and creates a new class structure
+struct class* parse_class(char *fn, int line)
+{
+	char str[BUFFER*3];
+	FILE *fp = fopen(fn, "r");
+	int count = 0;
+	int pos = 0;
+	char* name;
+	char* lv;
+	char* hp;
+	char* tp;
+	char* st;
+	char* te;
+	char* vi;
+	char* ag;
+	char* lu;
+	if(fp != NULL)
+	{
+		while(count<line)
+		{
+			fgets(str, sizeof(str), fp);
+			count++;
+		}
+		char *tok = strtok(str, ",");
+
+		while(pos != 9)
+		{
+			if(pos == 0)
+			{
+				name = tok;
+			}
+			if(pos == 1)
+			{
+				lv = tok;
+			}
+			if(pos == 2)
+			{
+				hp = tok;
+			}
+			if(pos == 3)
+			{
+				tp = tok;
+			}
+			if(pos == 4)
+			{
+				st = tok;
+			}
+			if(pos == 5)
+			{
+				te = tok;
+			}
+			if(pos == 6)
+			{
+				vi = tok;
+			}
+			if(pos == 7)
+			{
+				ag = tok;
+			}
+			if(pos == 8)
+			{
+				lu = tok;
+			}
+			pos++;
+			tok = strtok(NULL, ",");
+		}
+	}
+	fclose(fp);
+	return init_class(name, atoi(lv), atoi(hp), atoi(tp), atoi(st), atoi(te),
+			atoi(vi), atoi(ag), atoi(lu));
 }
 
 // Function: create_class

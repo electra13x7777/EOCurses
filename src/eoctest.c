@@ -14,6 +14,7 @@
 #include "equip.h"
 #include "enemy.h"
 #include "attack.h"
+#include "party.h"
 
 #define BUFFER 999
 
@@ -47,6 +48,17 @@ void test_equip_creator()
 	remove_equip(e);
 }
 
+// Tests Class Parsing //
+void test_class_parser()
+{
+	int val;
+	printf("Please enter an integer value (see party.txt for line numbers): ");
+	scanf("%d", &val);
+	struct class *c = parse_class("src/party.txt", val);
+	print_class(c);
+	remove_class(c);
+}
+
 // Tests Manual Class Creation //
 void test_class_creator()
 {
@@ -69,6 +81,17 @@ void test_class_with_equip()
 	remove_class(c);
 }
 
+// Test Party Parsing //
+void test_party_parser()
+{
+	struct party *p = parse_party("src/party.txt");
+	print_class(p->front[0]);
+	print_class(p->front[1]);
+	print_class(p->front[2]);
+	print_class(p->back[0]);
+	print_class(p->back[1]);
+}
+
 // Simple Battle Simulation //
 void sim()
 {
@@ -77,7 +100,7 @@ void sim()
 	struct class *l = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39);
 	print_class(l);
 	printf("\n");
-	struct enemy *e = parse_enemy(Fenrir_e);
+	struct enemy *e = parse_enemy(Golem_e);
 	print_enemy(e);
 	printf("\n");
 	while(e->hp > 0 && l->stats[0] > 0)
@@ -131,9 +154,11 @@ int main()
 	printf("1 | Test Enemy Parser\n");
 	printf("2 | Test Equip Parser\n");
 	printf("3 | Test Equip Creator\n");
-	printf("4 | Test Class Creator\n");
-	printf("5 | Test Class With Equip\n");
-	printf("6 | Test Battle Simulation\n");
+	printf("4 | Test Class Parser\n");
+	printf("5 | Test Class Creator\n");
+	printf("6 | Test Class With Equip\n");
+	printf("7 | Test Party Parser\n");
+	printf("8 | Test Battle Simulation\n");
 	printf("0 | Exit Test Suite\n");
 	while(1)
 	{
@@ -159,13 +184,22 @@ int main()
 		}
 		if(t == 4)
 		{
-			test_class_creator();
+			test_class_parser();
 		}
 		if(t == 5)
 		{
-			test_class_with_equip();
+			test_class_creator();
 		}
 		if(t == 6)
+		{
+			test_class_with_equip();
+		}
+		if(t == 7)
+		{
+			test_party_parser();
+		}
+
+		if(t == 8)
 		{
 			sim();
 		}

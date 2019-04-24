@@ -30,6 +30,7 @@ enum classpos
 // Class Functions //
 struct class* init_class(char* name, int lv, int hp, int tp, int st, int te,
 		int vi, int ag, int lu);
+struct class* parse_class(char *fn, int line);
 struct class* create_class();
 void add_equip(struct class *c, struct equip *e, int pos);
 void remove_class();
