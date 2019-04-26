@@ -1,7 +1,7 @@
 // File: eoctest.c
 // Author: Alex Barney
 //
-// Description: Testing functions for EOCalc
+// Description: Testing functions
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -85,11 +85,7 @@ void test_class_with_equip()
 void test_party_parser()
 {
 	struct party *p = parse_party("src/party.txt");
-	print_class(p->front[0]);
-	print_class(p->front[1]);
-	print_class(p->front[2]);
-	print_class(p->back[0]);
-	print_class(p->back[1]);
+	print_party(p);
 }
 
 // Simple Battle Simulation //

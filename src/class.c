@@ -218,17 +218,3 @@ void print_class(struct class *c)
 	printf("Attack: %d\n", c->atk);
 	printf("Defense: %d\n", c->def);
 }
-
-void test()
-{
-	//printf("%d\n", sizeof(struct equip*)*4 + sizeof(int)*10 + sizeof(char*));
-	struct class *c = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39);
-	printf("CLASS\n");
-	print_class(c);
-	printf("EQUIP\n");
-	if(c->equipment[0] != NULL)
-	{
-		print_equip(c->equipment[0]);
-	}
-	remove_class(c);
-}
