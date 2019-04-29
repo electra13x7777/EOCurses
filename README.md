@@ -27,3 +27,6 @@
 * Define how the package will parse a dungeon map (most likely a grid of 0s for travelable tiles and 1s for walls)
 * *ASCII Graphics in Curses* - create something similar to the style of the virtual battler in SMTII
 * Finish the full curses implementation
+
+### Author's Note
+EOCurses is in no way affiliated with Atlus. No source code is taken from the original game. This is a fan creation developed out of appreciation for the original game. This is 100% free software and no profit will be generated directly from EOCurses. Please support the official release.
