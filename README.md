@@ -17,7 +17,7 @@
 * *attack* - simple attack algorithm (not final)
 * *enemy* - definition of an enemy
 * *equip* - definition of in game equipment
-* *class* - definition of the 9 classes in the game
+* *class* - definition of the 9 classes in the game (free is broken)
 * *party* - defines the structure of a 5 class party in the game (free is broken)
 
 #### Future Goals

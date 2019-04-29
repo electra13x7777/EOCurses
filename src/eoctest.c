@@ -9,12 +9,14 @@
 #include <math.h>
 #include <unistd.h>
 #include <time.h>
+#include <AL/alut.h>
 
 #include "class.h"
 #include "equip.h"
 #include "enemy.h"
 #include "attack.h"
 #include "party.h"
+#include "music.h"
 
 #define BUFFER 999
 
@@ -71,13 +73,20 @@ void test_class_creator()
 void test_class_with_equip()
 {
 	struct class *c = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39);
+	struct equip *e = parse_equip(1);
+	add_equip(c,e,1);
+	add_equip(c,e,2);
 	printf("CLASS\n");
 	print_class(c);
 	printf("EQUIP\n");
-	if(c->equipment[0] != NULL)
+	if(c->equips->e1 != NULL)
 	{
-		print_equip(c->equipment[0]);
+		print_equip(c->equips->e1);
 	}
+	/*if(c->equips->e1 != NULL)
+	{
+		print_equip(c->equips->e2);
+	}*/
 	remove_class(c);
 }
 
@@ -143,7 +152,7 @@ void sim()
 	printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
 }
 
-int main()
+int main(int argc, char **argv)
 {
 	int t;
 	printf("EOCALC TEST SUITE\n");
@@ -154,7 +163,8 @@ int main()
 	printf("5 | Test Class Creator\n");
 	printf("6 | Test Class With Equip\n");
 	printf("7 | Test Party Parser\n");
-	printf("8 | Test Battle Simulation\n");
+	printf("8 | Test Music Playback\n");
+	printf("9 | Test Battle Simulation\n");
 	printf("0 | Exit Test Suite\n");
 	while(1)
 	{
@@ -194,8 +204,24 @@ int main()
 		{
 			test_party_parser();
 		}
-
 		if(t == 8)
+		{
+			argc = 2;
+			if(!alutInit(&argc, argv))
+			{
+				ALenum error = alutGetError();
+			}
+			if(argc != 2)
+			{
+				alutExit();
+				exit(1);
+			}
+			char *fn = "src/utils/initialstrike.wav";
+			argv[1] = fn;
+			play_song(argv[1]);
+			alutExit();
+		}
+		if(t == 9)
 		{
 			sim();
 		}

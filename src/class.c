@@ -12,6 +12,15 @@
 
 #define BUFFER 999
 
+// Function: init_equipment
+// Return: struct equipment*
+// Description: Creates a new instance of an equipment structure
+struct equipment* init_equipment()
+{
+	struct equipment *new =(struct equipment*)malloc(sizeof(struct equipment*));
+	return new;
+}
+
 // Function: add_equip
 // Return: void
 // Description: Adds an equip structure to a class
@@ -28,9 +37,24 @@ void add_equip(struct class *c, struct equip *e, int pos)
 	}
 	if(can_equip)
 	{
-		pos-=1;
+		//pos-=1;
 		//c = (struct class*) realloc(c, sizeof(c)+56);
-		c->equipment[pos] = e;
+		//c->equipment[pos] = e;
+		switch(pos)
+		{
+			case(1):
+				c->equips->e1 = e;
+				break;
+			case(2):
+				c->equips->e2 = e;
+				break;
+			case(3):
+				c->equips->e3 = e;
+				break;
+			case(4):
+				c->equips->e4 = e;
+				break;
+		}
 		// Update stats //
 		c->stats[0] += e->stats[0];
 		c->stats[1] += e->stats[1];
@@ -65,6 +89,7 @@ struct class* init_class(char *name, int lv, int hp, int tp, int st, int te,
 	// set battle stats
 	new->atk = new->stats[2];
 	new->def = new->stats[4];
+	new->equips = init_equipment();
 	// add equip
 	add_equip(new, parse_equip(1), 1);
 	return new;
@@ -191,13 +216,23 @@ struct class* create_class()
 void remove_class(struct class *c)
 {
 
-	for(int i = 0; i < 4; i++)
+	if(c->equips->e1 != NULL)
 	{
-		if(c->equipment[i] != NULL)
-		{
-			remove_equip(c->equipment[i]);
-		}
+		remove_equip(c->equips->e1);
 	}
+	if(c->equips->e2 != NULL)
+	{
+		remove_equip(c->equips->e2);
+	}
+	if(c->equips->e3 != NULL)
+	{
+		remove_equip(c->equips->e3);
+	}
+	if(c->equips->e4 != NULL)
+	{
+		remove_equip(c->equips->e4);
+	}
+	free(c->equips);
 	free(c);
 }
 

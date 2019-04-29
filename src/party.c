@@ -111,8 +111,9 @@ struct party* parse_party(char *fn)
 	struct pmap *p5 = init_pmap(parse_class(fn, 5), partypos[4]);
 	char p5name[BUFFER*2];
 	strcpy(p5name, p5->c->name);
-	char p6name[BUFFER*2];
-	strcpy(p6name, p5->c->name); //Awful solution but fixes buffer issue
+	getchar();
+	//char p6name[BUFFER*2];
+	//strcpy(p6name, p5->c->name); //Awful solution but fixes buffer issue
 	p->p1 = p1;
 	p->p2 = p2;
 	p->p3 = p3;

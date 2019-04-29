@@ -3,14 +3,14 @@
 //
 // Description: Prototypes an Etrian Odyssey party
 
-struct pmap
+struct __attribute__((__packed__)) pmap
 {
 	//struct pmap *next;
 	struct class *c;
 	int pos;
 };
 
-struct party
+struct __attribute__((__packed__)) party
 {
 	struct pmap *p1;
 	struct pmap *p2;
