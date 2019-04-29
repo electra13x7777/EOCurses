@@ -1,0 +1,20 @@
+Key:
+0 = Open
+1 = Wall
+2 = Stairs
+3 = Treasure
+4 = Gather
+5 = Door
+6 = FOE Spawn point
+Shortcuts:
+7 = Left
+8 = Right
+9 = Up
+E = Event
+
+A[5]
+B[5]
+C[5]
+D[5]
+E[5]
+F[5]

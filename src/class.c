@@ -17,7 +17,11 @@
 // Description: Creates a new instance of an equipment structure
 struct equipment* init_equipment()
 {
-	struct equipment *new =(struct equipment*)malloc(sizeof(struct equipment*));
+	struct equipment *new = (struct equipment*) malloc(32);
+	//new->e1 = NULL;
+	//new->e2 = NULL;
+	//new->e3 = NULL;
+	//new->e4 = NULL;
 	return new;
 }
 
@@ -37,12 +41,29 @@ void add_equip(struct class *c, struct equip *e, int pos)
 	}
 	if(can_equip)
 	{
+		/*
+		int e1_b = c->equips->e1 != NULL;
+		int e2_b = c->equips->e2 != NULL;
+		int e3_b = c->equips->e3 != NULL;
+		int e4_b = c->equips->e4 != NULL;
+		void *temp;*/
 		//pos-=1;
 		//c = (struct class*) realloc(c, sizeof(c)+56);
 		//c->equipment[pos] = e;
-		switch(pos)
+		/*switch(pos)
 		{
 			case(1):
+				if(e2_b == 0)
+				{
+					c->equips->e1 = e;
+					c->equips->e2 = NULL;
+				}
+				else
+				{
+					temp = (void*) c->equips->e2;
+					c->equips->e1 = e;
+					c->equips->e2 = (struct equip*) temp;
+				}
 				c->equips->e1 = e;
 				break;
 			case(2):
@@ -54,7 +75,7 @@ void add_equip(struct class *c, struct equip *e, int pos)
 			case(4):
 				c->equips->e4 = e;
 				break;
-		}
+		}*/
 		// Update stats //
 		c->stats[0] += e->stats[0];
 		c->stats[1] += e->stats[1];
@@ -67,6 +88,8 @@ void add_equip(struct class *c, struct equip *e, int pos)
 		c->def += e->stats[4] + e->def;
 	}
 }
+
+
 
 // Function: init_class
 // Return: struct class*
@@ -91,7 +114,7 @@ struct class* init_class(char *name, int lv, int hp, int tp, int st, int te,
 	new->def = new->stats[4];
 	new->equips = init_equipment();
 	// add equip
-	add_equip(new, parse_equip(1), 1);
+	//add_equip(new, parse_equip(1), 1);
 	return new;
 }
 
@@ -169,6 +192,89 @@ struct class* parse_class(char *fn, int line)
 			atoi(vi), atoi(ag), atoi(lu));
 }
 
+// Function: parse_equipment
+// Return: struct equipment*
+// Description:
+struct equipment* parse_equipment(struct class *c)
+{
+	int check_can_equip(struct class *c, struct equip *e)
+	{
+		int can_equip = 0;
+		for(int i = 0; i < strlen(e->classes); i++)
+		{
+			if(c->name[0] == e->classes[i])
+			{
+				can_equip = 1;
+			}
+		}
+		return can_equip;
+	}
+
+	void update_stats(struct class *c, struct equip *e)
+	{
+		c->stats[0] += e->stats[0];
+		c->stats[1] += e->stats[1];
+		c->stats[2] += e->stats[2];
+		c->stats[3] += e->stats[3];
+		c->stats[4] += e->stats[4];
+		c->stats[5] += e->stats[5];
+		c->stats[6] += e->stats[6];
+		c->atk += e->stats[2] + e->atk;
+		c->def += e->stats[4] + e->def;
+	}
+
+	struct equipment *eq = init_equipment();
+	struct equip *e1 = parse_equip(1);
+	char e1name[BUFFER*2];
+	char e1classes[BUFFER*2];
+	char e2name[BUFFER*2];
+	char e2classes[BUFFER*2];
+	char e3name[BUFFER*2];
+	char e3classes[BUFFER*2];
+	char e4name[BUFFER*2];
+	char e4classes[BUFFER*2];
+	if(check_can_equip(c, e1))
+	{
+		eq->e1 = e1;
+		strcpy(e1name, eq->e1->name);
+		strcpy(e1classes, eq->e1->classes);
+		update_stats(c,e1);
+	}
+	struct equip *e2 = parse_equip(2);
+	if(check_can_equip(c, e2))
+	{
+		eq->e2 = e2;
+		strcpy(e2name, eq->e2->name);
+		strcpy(e2classes, eq->e2->classes);
+		update_stats(c,e2);
+	}
+	struct equip *e3 = parse_equip(3);
+	if(check_can_equip(c, e3))
+	{
+		eq->e3 = parse_equip(3);
+		strcpy(e3name, eq->e3->name);
+		strcpy(e3classes, eq->e3->classes);
+		update_stats(c,e3);
+	}
+	struct equip *e4 = parse_equip(4);
+	if(check_can_equip(c, e4))
+	{
+		eq->e4 = parse_equip(4);
+		strcpy(e4name, eq->e4->name);
+		strcpy(e4classes, eq->e4->classes);
+		update_stats(c,e4);
+	}
+	eq->e1->name = e1name;
+	eq->e1->classes = e1classes;
+	eq->e2->name = e2name;
+	eq->e2->classes = e2classes;
+	eq->e3->name = e3name;
+	eq->e3->classes = e3classes;
+	eq->e4->name = e4name;
+	eq->e4->classes = e4classes;
+	return eq;
+}
+
 // Function: create_class
 // Return: struct class*
 // Description: Wraps around init_class to have a user create a class
@@ -232,6 +338,9 @@ void remove_class(struct class *c)
 	{
 		remove_equip(c->equips->e4);
 	}
+	//printf("%d\n", sizeof(c->equips->e1)*4);
+	//printf("%d\n", c->equips->e2 != NULL);
+	//remove_equip(c->equips->e1);
 	free(c->equips);
 	free(c);
 }

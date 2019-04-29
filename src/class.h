@@ -3,6 +3,7 @@
 //
 // Description: Prototypes an Etrian Odyssey class
 
+
 struct __attribute__((__packed__)) equipment
 {
 	struct equip *e1;
@@ -11,10 +12,22 @@ struct __attribute__((__packed__)) equipment
 	struct equip *e4;
 };
 
+/*
+struct __attribute__((__packed__)) equipment
+{
+	struct equip *e;
+	int pos;
+};
+*/
+
 struct __attribute__((__packed__)) class
 {
 	char* name; // class name
 	int stats[7]; //hp,tp,str,tec,vit,agi,luc
+	/*struct equipment *e1;
+	struct equipment *e2;
+	struct equipment *e3;
+	struct equipment *e4;*/
 	struct equipment *equips;
 	//struct equip* equipment[4];
 	//int equip[4]; // Weapons, Shields, Armor, Accesories
@@ -42,6 +55,8 @@ struct class* init_class(char* name, int lv, int hp, int tp, int st, int te,
 struct class* parse_class(char *fn, int line);
 struct class* create_class();
 struct equipment* init_equipment();
+struct equipment* parse_equipment(struct class *c);
 void add_equip(struct class *c, struct equip *e, int pos);
+//void set_equips(struct equipment *e);
 void remove_class();
 void print_class(struct class *c);
