@@ -41,10 +41,26 @@ void play_song(const char *fn)
 	}
 	while(status == AL_PLAYING);
 }
+
 void play_sfx()
 {
 	return;
 }
+
+// Function: play_audio
+// Return: void*
+// Description: Wrapper for play_song for threading purposes
+void* play_audio(void** args)
+{
+	int argc = *((int*) args[0]);
+	char **argv = *((char**) args[1]);
+	if(!alutInit(argc, argv))
+	{
+		ALenum error = alutGetError();
+	}
+	play_song(argv[1]);
+}
+
 /*
 int main(int argc, char **argv)
 {
