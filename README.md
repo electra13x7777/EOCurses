@@ -2,10 +2,12 @@
 ## Etrian Odyssey port to curses
 
 ### Development
+* Simple curses based battle simulation with music is now playable by running *pkg/eocurses*
 * Game functionality is still under development so included is binary with a test suite to test the current functionality of EOCurses *pkg/eoctest*
 
-### Binary
-* Binary runs a simple battle simulation as a test of current calculation algorithms
+### Binaries
+* *eocurses*: runs a simple battle simulation in curses with battle music
+* *eoctest*: test suite
 
 ### Build From Source
 * Makefile included to build binary in *pkg/* from files in *src/*
