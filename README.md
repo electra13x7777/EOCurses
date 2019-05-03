@@ -1,6 +1,9 @@
 # EOCurses
 ## Etrian Odyssey port to curses
 
+### Etrian Odyssey Curses
+EOCurses aims to be a near 1:1 port of Etrian Odyssey for Nintendo DS to Curses in the UNIX shell.
+
 ### Development
 * Simple curses based battle simulation with music is now playable by running *pkg/eocurses*
 * Game functionality is still under development so included is binary with a test suite to test the current functionality of EOCurses *pkg/eoctest*
