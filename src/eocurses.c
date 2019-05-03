@@ -265,7 +265,7 @@ void* draw()
 	delwin(enemy1);
 	endwin();
 }
-
+/*
 void* play(void** args)
 {
 	int argc = *( (int*) args[0]);
@@ -276,7 +276,7 @@ void* play(void** args)
 	}
 	play_song(argv[1]);
 }
-
+*/
 int main(int argc, char **argv)
 {
 	pthread_t curse_thread;
@@ -284,12 +284,12 @@ int main(int argc, char **argv)
 	pthread_t threads[2];
 	int curse_pid = pthread_create(&curse_thread, NULL, &draw, NULL);
 	argc = 2;
-	char *fn = "src/utils/initialstrike.wav";
+	char *fn = "src/utils/music/initialstrike.wav";
 	argv[1] = fn;
 	//(void*)argc;
 	//(void*)argv;
 	void* args[2] = {&argc, &argv};
-	int music_pid = pthread_create(&music_thread, NULL, &play, args);
+	int music_pid = pthread_create(&music_thread, NULL, &play_audio, args);
 	threads[1] = curse_thread;
 	threads[0] = music_thread;
 	for(int i = 0; i < 2; i++)
