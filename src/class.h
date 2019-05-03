@@ -12,14 +12,6 @@ struct __attribute__((__packed__)) equipment
 	struct equip *e4;
 };
 
-/*
-struct __attribute__((__packed__)) equipment
-{
-	struct equip *e;
-	int pos;
-};
-*/
-
 struct __attribute__((__packed__)) class
 {
 	char* name; // class name
@@ -55,7 +47,7 @@ struct class* init_class(char* name, int lv, int hp, int tp, int st, int te,
 struct class* parse_class(char *fn, int line);
 struct class* create_class();
 struct equipment* init_equipment();
-struct equipment* parse_equipment(struct class *c);
+struct equipment* parse_equipment(struct class *c,int l1,int l2,int l3,int l4);
 void add_equip(struct class *c, struct equip *e, int pos);
 //void set_equips(struct equipment *e);
 void remove_class();

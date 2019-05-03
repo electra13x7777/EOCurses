@@ -194,8 +194,8 @@ struct class* parse_class(char *fn, int line)
 
 // Function: parse_equipment
 // Return: struct equipment*
-// Description:
-struct equipment* parse_equipment(struct class *c)
+// Description: Parses equips into an equipment structure held in a class
+struct equipment* parse_equipment(struct class *c,int l1,int l2,int l3,int l4)
 {
 	int check_can_equip(struct class *c, struct equip *e)
 	{
@@ -224,7 +224,7 @@ struct equipment* parse_equipment(struct class *c)
 	}
 
 	struct equipment *eq = init_equipment();
-	struct equip *e1 = parse_equip(1);
+	struct equip *e1 = parse_equip(l1);
 	char e1name[BUFFER*2];
 	char e1classes[BUFFER*2];
 	char e2name[BUFFER*2];
@@ -240,7 +240,7 @@ struct equipment* parse_equipment(struct class *c)
 		strcpy(e1classes, eq->e1->classes);
 		update_stats(c,e1);
 	}
-	struct equip *e2 = parse_equip(2);
+	struct equip *e2 = parse_equip(l2);
 	if(check_can_equip(c, e2))
 	{
 		eq->e2 = e2;
@@ -248,18 +248,18 @@ struct equipment* parse_equipment(struct class *c)
 		strcpy(e2classes, eq->e2->classes);
 		update_stats(c,e2);
 	}
-	struct equip *e3 = parse_equip(3);
+	struct equip *e3 = parse_equip(l3);
 	if(check_can_equip(c, e3))
 	{
-		eq->e3 = parse_equip(3);
+		eq->e3 = e3;
 		strcpy(e3name, eq->e3->name);
 		strcpy(e3classes, eq->e3->classes);
 		update_stats(c,e3);
 	}
-	struct equip *e4 = parse_equip(4);
+	struct equip *e4 = parse_equip(l4);
 	if(check_can_equip(c, e4))
 	{
-		eq->e4 = parse_equip(4);
+		eq->e4 = e4;
 		strcpy(e4name, eq->e4->name);
 		strcpy(e4classes, eq->e4->classes);
 		update_stats(c,e4);

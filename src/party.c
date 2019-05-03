@@ -123,24 +123,12 @@ struct party* parse_party(char *fn)
 	p->p2->c->name = p2name;
 	p->p3->c->name = p3name;
 	p->p4->c->name = p4name;
-	//p->p5->c->name = p5name;
-	//printf("%s\n",p1name);
-	/*
-	for(int i = 0; i < 5; i++)
-	{
-		if(partypos[i] == FRONT && f < 3)
-		{
 
-			//p->front[f] = parse_class(fn, i);
-			f++;
-		}
-		else if(partypos[i] == BACK && b < 3)
-		{
-			//p->back[b] = parse_class(fn, i);
-			b++;
-		}
-	}
-*/
+	p->p1->c->equips = parse_equipment(p->p1->c, 1, 1, 1, 1);
+	p->p2->c->equips = parse_equipment(p->p2->c, 1, 1, 1, 1);
+	p->p3->c->equips = parse_equipment(p->p3->c, 1, 1, 1, 1);
+	p->p4->c->equips = parse_equipment(p->p4->c, 1, 1, 1, 1);
+	p->p5->c->equips = parse_equipment(p->p5->c, 1, 1, 1, 1);
 	return p;
 }
 

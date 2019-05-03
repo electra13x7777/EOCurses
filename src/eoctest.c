@@ -74,22 +74,12 @@ void test_class_with_equip()
 {
 	struct class *c = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39);
 	//struct equip *e = parse_equip(1);
-	struct equipment *eq = parse_equipment(c);
+	struct equipment *eq = parse_equipment(c,2,3,4,5);
 	//set_equips(eq);
 	c->equips = eq;
-	//add_equip(c,e,1);
-	//add_equip(c,e,2);
 	printf("CLASS\n");
 	print_class(c);
 	printf("EQUIP\n");
-	/*if(c->equips->e1 != NULL)
-	{
-		print_equip(c->equips->e1);
-	}*/
-	/*if(c->equips->e1 != NULL)
-	{
-		print_equip(c->equips->e2);
-	}*/
 	print_equip(c->equips->e1);
 	print_equip(c->equips->e2);
 	print_equip(c->equips->e3);
@@ -102,7 +92,7 @@ void test_party_parser()
 {
 	struct party *p = parse_party("src/party.txt");
 	print_party(p);
-	//remove_party(p);
+	remove_party(p);
 }
 
 // Simple Battle Simulation //
