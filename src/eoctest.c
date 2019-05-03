@@ -150,20 +150,31 @@ void sim()
 	printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
 }
 
+void print_credits()
+{
+	printf("Project: EOCurses\n");
+	printf("Description: A port of Etrian Odyssey to curses\n");
+	printf("License: N/A\n");
+	printf("Author: Alex Barney\n");
+	printf("Website: http://www.alexbarney.xyz\n");
+	printf("Upstream URL: https://github.com/electra13x7777/EOCurses\n");
+}
+
 int main(int argc, char **argv)
 {
 	int t;
 	printf("EOCALC TEST SUITE\n");
-	printf("1 | Test Enemy Parser\n");
-	printf("2 | Test Equip Parser\n");
-	printf("3 | Test Equip Creator\n");
-	printf("4 | Test Class Parser\n");
-	printf("5 | Test Class Creator\n");
-	printf("6 | Test Class With Equip\n");
-	printf("7 | Test Party Parser\n");
-	printf("8 | Test Music Playback\n");
-	printf("9 | Test Battle Simulation\n");
-	printf("0 | Exit Test Suite\n");
+	printf("1  | Test Enemy Parser\n");
+	printf("2  | Test Equip Parser\n");
+	printf("3  | Test Equip Creator\n");
+	printf("4  | Test Class Parser\n");
+	printf("5  | Test Class Creator\n");
+	printf("6  | Test Class With Equip\n");
+	printf("7  | Test Party Parser\n");
+	printf("8  | Test Music Playback\n");
+	printf("9  | Test Battle Simulation\n");
+	printf("10 | Print Credits\n");
+	printf("0  | Exit Test Suite\n");
 	while(1)
 	{
 		printf("Please enter an integer to run the desired test: ");
@@ -222,6 +233,10 @@ int main(int argc, char **argv)
 		if(t == 9)
 		{
 			sim();
+		}
+		if(t == 10)
+		{
+			print_credits();
 		}
 		printf("\n");
 	}
