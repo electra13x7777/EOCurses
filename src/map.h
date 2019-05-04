@@ -4,4 +4,5 @@
 // Description:
 
 // Functions //
-void parse_map(int *arr);
+void parse_map(char* fn, char arr[35][30]);
+void print_map(char arr[35][30]);

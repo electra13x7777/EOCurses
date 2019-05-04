@@ -236,7 +236,6 @@ void* draw()
 									mvwaddstr(class5, 2, 2, temp);
 									wrefresh(class5);
 							}
-
 							k++;
 							j = 0;
 							break;
@@ -286,8 +285,6 @@ int main(int argc, char **argv)
 	argc = 2;
 	char *fn = "src/utils/music/initialstrike.wav";
 	argv[1] = fn;
-	//(void*)argc;
-	//(void*)argv;
 	void* args[2] = {&argc, &argv};
 	int music_pid = pthread_create(&music_thread, NULL, &play_audio, args);
 	threads[1] = curse_thread;

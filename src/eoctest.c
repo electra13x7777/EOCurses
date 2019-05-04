@@ -163,7 +163,8 @@ void print_credits()
 int main(int argc, char **argv)
 {
 	int t;
-	printf("EOCALC TEST SUITE\n");
+	TEST:
+	printf("EOCURSES TEST SUITE\n");
 	printf("1  | Test Enemy Parser\n");
 	printf("2  | Test Equip Parser\n");
 	printf("3  | Test Equip Creator\n");
@@ -173,7 +174,8 @@ int main(int argc, char **argv)
 	printf("7  | Test Party Parser\n");
 	printf("8  | Test Music Playback\n");
 	printf("9  | Test Battle Simulation\n");
-	printf("10 | Print Credits\n");
+	printf("10 | Print Tests\n");
+	printf("11 | Print Credits\n");
 	printf("0  | Exit Test Suite\n");
 	while(1)
 	{
@@ -235,6 +237,10 @@ int main(int argc, char **argv)
 			sim();
 		}
 		if(t == 10)
+		{
+			goto TEST;
+		}
+		if(t == 11)
 		{
 			print_credits();
 		}
