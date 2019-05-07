@@ -116,6 +116,27 @@ struct class* init_class(char *name, int lv, int hp, int tp, int st, int te,
 	new->equips = init_equipment();
 	// add equip
 	//add_equip(new, parse_equip(1), 1);
+	new->skills[0] = 0;
+	new->skills[1] = 0;
+	new->skills[2] = 0;
+	new->skills[3] = 0;
+	new->skills[4] = 0;
+	new->skills[5] = 0;
+	new->skills[6] = 0;
+	new->skills[7] = 0;
+	new->skills[8] = 0;
+	new->skills[9] = 0;
+	new->skills[10] = 0;
+	new->skills[11] = 0;
+	new->skills[12] = 0;
+	new->skills[13] = 0;
+	new->skills[14] = 0;
+	new->skills[15] = 0;
+	new->skills[16] = 0;
+	new->skills[17] = 0;
+	new->skills[18] = 0;
+	new->skills[19] = 0;
+	new->skills[20] = 0;
 	return new;
 }
 
@@ -362,4 +383,208 @@ void print_class(struct class *c)
 	printf("LUC: %d\n", c->stats[6]);
 	printf("Attack: %d\n", c->atk);
 	printf("Defense: %d\n", c->def);
+}
+
+void level_up(struct class *c)
+{
+	return;
+}
+
+void invest_sp(struct class *c, int pos)
+{
+	if(c->name[0] == 'L' && c->sp > 0)
+	{
+		switch(pos)
+		{
+			case(0): // la_hp_up
+				if(c->skills[0] < 10)
+				{
+					c->skills[0] += 1;
+					c->sp--;
+				}
+				break;
+			case(1): // la_tp_up
+				if(c->skills[1] < 10)
+				{
+					c->skills[1] += 1;
+					c->sp--;
+				}
+				break;
+			case(2): // la_atk_up
+				if(c->skills[2] < 10)
+				{
+					c->skills[2] += 1;
+					c->sp--;
+				}
+				break;
+			case(3): // la_def_up
+				if(c->skills[3] < 10)
+				{
+					c->skills[3] += 1;
+					c->sp--;
+				}
+				break;
+			case(4): // la_axes
+				if(c->skills[4] < 10)
+				{
+					c->skills[4] += 1;
+					c->sp--;
+				}
+				break;
+			case(5): // la_swords
+				if(c->skills[5] < 10)
+				{
+					c->skills[5] += 1;
+					c->sp--;
+				}
+				break;
+			case(6): // 2_hit
+				if(c->skills[4] >= 5 && c->skills[5] >= 5)
+				{
+					if(c->skills[6] < 10)
+					{
+						c->skills[6] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(7): // war_cry
+				if(c->skills[2] >= 3)
+				{
+					if(c->skills[7] < 10)
+					{
+						c->skills[7] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(8): // hell_cry
+				if(c->skills[2] == 10)
+				{
+					if(c->skills[8] < 10)
+					{
+						c->skills[8] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(9): // arm_heal
+				if(c->skills[3] >= 1)
+				{
+					if(c->skills[9] < 10)
+					{
+						c->skills[9] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(10): // flee
+				if(c->skills[3] >= 5)
+				{
+					if(c->skills[10] < 10)
+					{
+						c->skills[10] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(11): // cleaver
+				if(c->skills[5] >= 1)
+				{
+					if(c->skills[11] < 10)
+					{
+						c->skills[11] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(12): // tornado
+				if(c->skills[5] >= 5)
+				{
+					if(c->skills[12] < 10)
+					{
+						c->skills[12] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(13): // allslash
+				if(c->skills[5] >= 5 && c->skills[6] >= 3)
+				{
+					if(c->skills[13] < 10)
+					{
+						c->skills[13] += 1;
+						c->sp--;
+					}
+				break;
+			case(14): // blazer
+				if(c->skills[5] >= 7 && c->skills[1] >= 3)
+				{
+					if(c->skills[14] < 10)
+					{
+						c->skills[14] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(15): // freezer
+				if(c->skills[5] >= 7 && c->skills[1] >= 3)
+				{
+					if(c->skills[15] < 10)
+					{
+						c->skills[15] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(16): // shocker
+				if(c->skills[5] >= 7 && c->skills[1] >= 3)
+				{
+					if(c->skills[16] < 10)
+					{
+						c->skills[16] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(17): // crush
+				if(c->skills[4] >= 1)
+				{
+					if(c->skills[17] < 10)
+					{
+						c->skills[17] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(18): // stunner
+				if(c->skills[5] >= 3)
+				{
+					if(c->skills[18] < 10)
+					{
+						c->skills[18] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(19): // silencer
+				if(c->skills[5] >= 7)
+				{
+					if(c->skills[19] < 10)
+					{
+						c->skills[19] += 1;
+						c->sp--;
+					}
+				}
+				break;
+			case(20): // mine
+				if(c->skills[20] < 10)
+				{
+					c->skills[20] += 1;
+					c->sp--;
+				}
+				break;
+		}
+	}
+	}
 }

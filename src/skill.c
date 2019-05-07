@@ -1,0 +1,21 @@
+// File: skill.c
+// Author: Alex Barney
+//
+// Description: Defines all skills in the game
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "skill.h"
+
+//////////////////////
+// ALCHEMIST SKILLS //
+//////////////////////
+
+////////////////////////
+// DARK HUNTER SKILLS //
+////////////////////////
+
+///////////////////////
+// LANDSKNECT SKILLS //
+///////////////////////

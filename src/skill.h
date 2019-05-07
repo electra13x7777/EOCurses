@@ -10,7 +10,7 @@ void ice_up(int sp, int id); // increases Ice
 void volt_up(int sp, int vd); // increases Volt
 void toxins(int sp); // increases Poison
 void scavenge(int sp); // increases chance of battle item drop
-void tp_regen(int sp, struct class *alc); // restores TP every turn
+void tp_regen(int sp, struct class *al); // restores TP every turn
 void fire(int sp); // fire damage
 void flame(int sp); // large fire damage
 void inferno(int sp); // large multitarget fire damage

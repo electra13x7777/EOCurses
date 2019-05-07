@@ -5,12 +5,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdint.h>
+/*
 #include "class.h"
 #include "equip.h"
 #include "enemy.h"
 #include "party.h"
-
+*/
+#ifndef foreach
 #define foreach(i, arr) \
 	            for(int j = 1, \
 						k = 0, \
@@ -18,7 +20,7 @@
 						j && k != size; \
 						j = !j, k++) \
 				for(i = arr + k; j; j = !j)
-
+#endif
 // Function: init_bq
 // Return: struct bq*
 // Description: Queue of all entities in a given battle scenario. Order is

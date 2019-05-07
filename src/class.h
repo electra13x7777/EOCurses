@@ -3,7 +3,6 @@
 //
 // Description: Prototypes an Etrian Odyssey class
 
-
 struct __attribute__((__packed__)) equipment
 {
 	struct equip *e1;
@@ -16,18 +15,14 @@ struct __attribute__((__packed__)) class
 {
 	char* name; // class name
 	int stats[7]; //hp,tp,str,tec,vit,agi,luc
-	/*struct equipment *e1;
-	struct equipment *e2;
-	struct equipment *e3;
-	struct equipment *e4;*/
+	uint8_t skills[21]; // ints to denote invested skillpoints
 	struct equipment *equips;
-	//struct equip* equipment[4];
 	//int equip[4]; // Weapons, Shields, Armor, Accesories
 	int lv; // level
 	int atk; // attack
 	int def; // defense
-	uint8_t skills[20]; // ints to denote invested skillpoints
 	int exp; // experience points
+	uint8_t sp; // number of skill points
 };
 
 enum classpos
@@ -54,3 +49,6 @@ void add_equip(struct class *c, struct equip *e, int pos);
 //void set_equips(struct equipment *e);
 void remove_class();
 void print_class(struct class *c);
+// levels and skills //
+void level_up(struct class *c);
+void invest_sp(struct class *c, int pos);

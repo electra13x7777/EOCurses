@@ -17,9 +17,18 @@
 #include "enemy.h"
 #include "attack.h"
 #include "party.h"
+#include "merge.h"
 #include "music.h"
 
 #define BUFFER 999
+
+#define foreach(i, arr) \
+	for(int j = 1, \
+			k = 0, \
+			size = sizeof(arr)/sizeof(*arr); \
+		j && k != size; \
+		j = !j, k++) \
+	for(i = arr + k; j; j = !j)
 
 // Tests Enemy Parsing //
 void test_enemy_parser()
@@ -151,6 +160,91 @@ void sim()
 	printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
 }
 
+// Test Turn Order //
+void test_turn_order()
+{
+	int *i;
+	struct party *p = parse_party("src/party.txt");
+	struct enemy *e = parse_enemy(18);
+	int arr[] =
+	{
+		p->p1->c->stats[5],
+		p->p2->c->stats[5],
+		p->p3->c->stats[5],
+		p->p4->c->stats[5],
+		p->p5->c->stats[5],
+		e->df
+	};
+	msort_dec(arr, 0, (sizeof(arr)/sizeof(arr[0]) -1));
+	foreach(i, arr)
+	{
+		printf("%d\n", *i);
+	}
+}
+
+void test_skill_points()
+{
+	int *i;
+	struct class *c = parse_class("src/party.txt", 1);
+	c->sp = 20;
+	for(int i = 0; i < 20; i++)
+	{
+		c->skills[i] = 0;
+		//printf("%d\n", c->skills[i]);
+	}
+	//memset(c->skills, 0, 21);
+	uint8_t arr[21];
+	invest_sp(c, 4);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Axes: %d\n", c->skills[4]);
+	invest_sp(c, 4);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Axes: %d\n", c->skills[4]);
+	invest_sp(c, 4);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Axes: %d\n", c->skills[4]);
+	invest_sp(c, 4);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Axes: %d\n", c->skills[4]);
+	invest_sp(c, 4);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Axes: %d\n", c->skills[4]);
+	invest_sp(c, 5);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Swords: %d\n", c->skills[5]);
+	invest_sp(c, 5);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Swords: %d\n", c->skills[5]);
+	invest_sp(c, 5);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Swords: %d\n", c->skills[5]);
+	invest_sp(c, 5);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Swords: %d\n", c->skills[5]);
+	invest_sp(c, 5);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Swords: %d\n", c->skills[5]);
+	invest_sp(c, 6);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("2-Hit: %d\n", c->skills[6]);
+	invest_sp(c, 6);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("2-Hit: %d\n", c->skills[6]);
+	invest_sp(c, 6);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("2-Hit: %d\n", c->skills[6]);
+	printf("Swords: %d\n", c->skills[5]);
+	invest_sp(c, 13);
+	printf("Skillpoints: %d\n", c->sp);
+	printf("Allslash: %d\n", c->skills[13]);
+	//memcpy(arr, c->skills, 21);
+	/*foreach(i, c->skills)
+	{
+		printf("%d\n", *i);
+	}
+	printf("\n%d", c->sp);*/
+}
+// Print Credits //
 void print_credits()
 {
 	printf("Project: EOCurses\n");
@@ -175,8 +269,10 @@ int main(int argc, char **argv)
 	printf("7  | Test Party Parser\n");
 	printf("8  | Test Music Playback\n");
 	printf("9  | Test Battle Simulation\n");
-	printf("10 | Print Tests\n");
-	printf("11 | Print Credits\n");
+	printf("10 | Test Turn Order\n");
+	printf("11 | Test Skill Points\n");
+	printf("12 | Print Tests\n");
+	printf("13 | Print Credits\n");
 	printf("0  | Exit Test Suite\n");
 	while(1)
 	{
@@ -239,9 +335,17 @@ int main(int argc, char **argv)
 		}
 		if(t == 10)
 		{
-			goto TEST;
+			test_turn_order();
 		}
 		if(t == 11)
+		{
+			test_skill_points();
+		}
+		if(t == 12)
+		{
+			goto TEST;
+		}
+		if(t == 13)
 		{
 			print_credits();
 		}

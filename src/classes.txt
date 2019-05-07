@@ -1,5 +1,6 @@
 Alchemist
 Dark Hunter
+Landsknecht
 Survivalist
 Troubadour
 Medic
