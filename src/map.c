@@ -71,6 +71,7 @@ void parse_map(char* fn, char arr[35][30])
 				{
 					arr[i][j] = 'E';
 				}
+				tok = strtok("NULL", ",");
 			}
 		}
 	}

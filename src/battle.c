@@ -12,24 +12,31 @@
 #include "enemy.h"
 #include "equip.h"
 #include "party.h"
+#include "merge.h"
+
+#define foreach(i, arr) \
+	for(int j = 1, \
+			k = 0, \
+			size = sizeof(arr)/sizeof(*arr); \
+		j && k != size; \
+		j = !j, k++) \
+	for(i = arr + k; j; j = !j)
+
 // Function: init_bq
-// Return: struct bq*
+// Return: void
 // Description: Queue of all entities in a given battle scenario. Order is
 //				sorted by the Agility stat.
 //struct bq* init_bq(struct party *p)
-int* turn_order(struct party *p, struct enemy *e)
+/*void turn_order(int arr[])
 {
 	// get agi vals for all entities //
-
 	void merge(int *vals, int lef, int mid, int rig)
 	{
 		int i, j;
 		int a = mid - lef + 1;
 		int b = rig - mid;
-
 		int l_arr[a];
 		int r_arr[b];
-
 		for(i = 0; i < a; i++)
 		{
 			l_arr[i] = vals[i + lef];
@@ -40,9 +47,10 @@ int* turn_order(struct party *p, struct enemy *e)
 		}
 
 		i=0;
-		j=0;
-		int k = lef;
 
+		j=0;
+
+		int k = lef;
 		while(i < a && j < b)
 		{
 			if(l_arr[i] >= r_arr[j])
@@ -57,11 +65,10 @@ int* turn_order(struct party *p, struct enemy *e)
 			}
 			k++;
 		}
-
 		while(i < a)
 		{
 			vals[k] = l_arr[i];
-			i++;
+	  		i++;
 			k++;
 		}
 		while(j < b)
@@ -74,7 +81,7 @@ int* turn_order(struct party *p, struct enemy *e)
 
 	void msort(int *vals, int left, int right)
 	{
-		if(left > right)
+		if(right > left)
 		{
 			int mid = left + (right - left) / 2;
 			msort(vals, left, mid);
@@ -83,18 +90,9 @@ int* turn_order(struct party *p, struct enemy *e)
 		}
 	}
 
-	int agi[] =
-	{
-		p->p1->c->stats[5],
-		p->p2->c->stats[5],
-		p->p3->c->stats[5],
-		p->p4->c->stats[5],
-		p->p5->c->stats[5],
-		e->df
-	};
-	msort(agi, 0, (sizeof(agi)/sizeof(agi[0]) - 1));
-	return agi;
-}
+
+	msort(arr, 0, (sizeof(arr)/sizeof(arr[0]) - 1));
+}*/
 /*
 void start_battle()
 {
@@ -111,17 +109,31 @@ int battle()
 	void update_steps{return;}
 	return 0;
 }*/
+/*
+void turn_order(int arr[])
+{
+	msort_dec(arr, 0, (sizeof(arr)/sizeof(arr[0]) -1));
+}
+*/
 int main()
 {
 	//int arr[6];
-   	int *ip;
+   	int *i;
 	struct party *p = parse_party("src/party.txt");
 	struct enemy *e = parse_enemy(18);
-   	ip = turn_order(p, e);
-	printf("h");
-	int size = (sizeof(*ip)/sizeof(ip[0]) - 1);
-	for(int i = 0; i < size; i++)
+   	int arr[] =
 	{
-		printf("%d\n", ip[i]);
+		p->p1->c->stats[5],
+		p->p2->c->stats[5],
+		p->p3->c->stats[5],
+		p->p4->c->stats[5],
+		p->p5->c->stats[5],
+		e->df
+	};
+	msort_dec(arr, 0, (sizeof(arr)/sizeof(arr[0]) -1));
+	//turn_order(arr);
+	foreach(i, arr)
+	{
+		printf("%d\n", *i);
 	}
 }

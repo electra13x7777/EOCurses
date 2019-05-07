@@ -26,6 +26,8 @@ struct __attribute__((__packed__)) class
 	int lv; // level
 	int atk; // attack
 	int def; // defense
+	uint8_t skills[20]; // ints to denote invested skillpoints
+	int exp; // experience points
 };
 
 enum classpos

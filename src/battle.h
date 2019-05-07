@@ -21,7 +21,7 @@ struct bq //battleQueue
 };
 */
 // Functions //
-int* turn_order(struct party *p, struct enemy *e);
+int* turn_order(int arr[]);
 void start_battle(); // called to start battle routine
 int battle(); // main battle routine | returns 1 for win 0 for loss
 void attack_order(); // orders attacks in a turn by agility

@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #include "class.h"
 #include "equip.h"
@@ -97,7 +98,7 @@ void add_equip(struct class *c, struct equip *e, int pos)
 struct class* init_class(char *name, int lv, int hp, int tp, int st, int te,
 		int vi, int ag, int lu)
 {
-	struct class *new = (struct class*) malloc(80);
+	struct class *new = (struct class*) malloc(104);
 	new->name = name;
 	new->lv = lv;
 	memset(new->stats, 0, 6);

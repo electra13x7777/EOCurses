@@ -1,10 +1,15 @@
-// File: Battle.c
+// File: merge.c
 // Author: Alex Barney
 //
-// Description: Definition of the main battle logic of the game
+// Description: sorting algorithms to be utilized in the game
 
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "class.h"
+#include "equip.h"
+#include "enemy.h"
+#include "party.h"
 
 #define foreach(i, arr) \
 	            for(int j = 1, \
@@ -84,7 +89,7 @@ void msort(int *vals, int left, int right)
 	}
 }
 
-void mmerge(int *vals, int lef, int mid, int rig)
+void merge_dec(int *vals, int lef, int mid, int rig)
 {
 	int i, j;
 	int a = mid - lef + 1;
@@ -134,26 +139,13 @@ void mmerge(int *vals, int lef, int mid, int rig)
 		k++;
 	}
 }
-void mmsort(int *vals, int left, int right)
+void msort_dec(int *vals, int left, int right)
 {
 	if(right > left)
 	{
 		int mid = left + (right - left) / 2;
-		mmsort(vals, left, mid);
-		mmsort(vals, mid+1, right);
-		mmerge(vals, left, mid, right);
-	}
-}
-
-int main()
-{
-	int *i;
-	int arr[6] = {3,7,21,8,4,9};
-	int size = sizeof(arr)/sizeof(arr[0]);
-	//msort(arr, 0, size-1);
-	mmsort(arr, 0, size-1);
-	foreach(i, arr)
-	{
-		printf("%d\n", *i);
+		msort_dec(vals, left, mid);
+		msort_dec(vals, mid+1, right);
+		merge_dec(vals, left, mid, right);
 	}
 }
