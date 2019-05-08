@@ -46,6 +46,7 @@ struct class* create_class();
 struct equipment* init_equipment();
 struct equipment* parse_equipment(struct class *c,int l1,int l2,int l3,int l4);
 void add_equip(struct class *c, struct equip *e, int pos);
+void un_equip(struct class *c, int pos);
 //void set_equips(struct equipment *e);
 void remove_class();
 void print_class(struct class *c);

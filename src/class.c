@@ -19,10 +19,6 @@
 struct equipment* init_equipment()
 {
 	struct equipment *new = (struct equipment*) malloc(sizeof(struct equipment));//32
-	//new->e1 = NULL;
-	//new->e2 = NULL;
-	//new->e3 = NULL;
-	//new->e4 = NULL;
 	return new;
 }
 
@@ -42,41 +38,6 @@ void add_equip(struct class *c, struct equip *e, int pos)
 	}
 	if(can_equip)
 	{
-		/*
-		int e1_b = c->equips->e1 != NULL;
-		int e2_b = c->equips->e2 != NULL;
-		int e3_b = c->equips->e3 != NULL;
-		int e4_b = c->equips->e4 != NULL;
-		void *temp;*/
-		//pos-=1;
-		//c = (struct class*) realloc(c, sizeof(c)+56);
-		//c->equipment[pos] = e;
-		/*switch(pos)
-		{
-			case(1):
-				if(e2_b == 0)
-				{
-					c->equips->e1 = e;
-					c->equips->e2 = NULL;
-				}
-				else
-				{
-					temp = (void*) c->equips->e2;
-					c->equips->e1 = e;
-					c->equips->e2 = (struct equip*) temp;
-				}
-				c->equips->e1 = e;
-				break;
-			case(2):
-				c->equips->e2 = e;
-				break;
-			case(3):
-				c->equips->e3 = e;
-				break;
-			case(4):
-				c->equips->e4 = e;
-				break;
-		}*/
 		// Update stats //
 		c->stats[0] += e->stats[0];
 		c->stats[1] += e->stats[1];
@@ -90,6 +51,80 @@ void add_equip(struct class *c, struct equip *e, int pos)
 	}
 }
 
+// Function: un_equip
+// Return: void
+// Description: sets equip structure to NONE and resets stats
+//				pos = 1 - 4
+void un_equip(struct class *c, int pos)
+{
+	switch(pos)
+	{
+		case(1):
+			if(c->equips->e1 != NULL)
+			{
+				c->stats[0] -= c->equips->e1->stats[0];
+				c->stats[1] -= c->equips->e1->stats[1];
+				c->stats[2] -= c->equips->e1->stats[2];
+				c->stats[3] -= c->equips->e1->stats[3];
+				c->stats[4] -= c->equips->e1->stats[4];
+				c->stats[5] -= c->equips->e1->stats[5];
+				c->stats[6] -= c->equips->e1->stats[6];
+				c->atk -= c->equips->e1->stats[2];
+				c->def -= c->equips->e1->stats[4];
+				remove_equip(c->equips->e1);
+				c->equips->e1 = parse_equip(0);
+			}
+			break;
+		case(2):
+			if(c->equips->e2 != NULL)
+			{
+				c->stats[0] -= c->equips->e2->stats[0];
+				c->stats[1] -= c->equips->e2->stats[1];
+				c->stats[2] -= c->equips->e2->stats[2];
+				c->stats[3] -= c->equips->e2->stats[3];
+				c->stats[4] -= c->equips->e2->stats[4];
+				c->stats[5] -= c->equips->e2->stats[5];
+				c->stats[6] -= c->equips->e2->stats[6];
+				c->atk -= c->equips->e2->stats[2];
+				c->def -= c->equips->e2->stats[4];
+				remove_equip(c->equips->e2);
+				c->equips->e2 = parse_equip(0);
+			}
+			break;
+		case(3):
+			if(c->equips->e3 != NULL)
+			{
+				c->stats[0] -= c->equips->e3->stats[0];
+				c->stats[1] -= c->equips->e3->stats[1];
+				c->stats[2] -= c->equips->e3->stats[2];
+				c->stats[3] -= c->equips->e3->stats[3];
+				c->stats[4] -= c->equips->e3->stats[4];
+				c->stats[5] -= c->equips->e3->stats[5];
+				c->stats[6] -= c->equips->e3->stats[6];
+				c->atk -= c->equips->e3->stats[2];
+				c->def -= c->equips->e3->stats[4];
+				remove_equip(c->equips->e3);
+				c->equips->e3 = parse_equip(0);
+			}
+			break;
+		case(4):
+			if(c->equips->e4 != NULL)
+			{
+				c->stats[0] -= c->equips->e4->stats[0];
+				c->stats[1] -= c->equips->e4->stats[1];
+				c->stats[2] -= c->equips->e4->stats[2];
+				c->stats[3] -= c->equips->e4->stats[3];
+				c->stats[4] -= c->equips->e4->stats[4];
+				c->stats[5] -= c->equips->e4->stats[5];
+				c->stats[6] -= c->equips->e4->stats[6];
+				c->atk -= c->equips->e4->stats[2];
+				c->def -= c->equips->e4->stats[4];
+				remove_equip(c->equips->e4);
+				c->equips->e4 = parse_equip(0);
+			}
+			break;
+	}
+}
 
 
 // Function: init_class
@@ -360,9 +395,6 @@ void remove_class(struct class *c)
 	{
 		remove_equip(c->equips->e4);
 	}
-	//printf("%d\n", sizeof(c->equips->e1)*4);
-	//printf("%d\n", c->equips->e2 != NULL);
-	//remove_equip(c->equips->e1);
 	free(c->equips);
 	free(c);
 }
@@ -387,7 +419,7 @@ void print_class(struct class *c)
 
 // Function: add_exp
 // Return: void
-// Description: Main logic for gaining exp
+// Description: Main logic for gaining exp (INTEGER USED IS NOT FINAL)
 void add_exp(struct class *c, unsigned int exp)
 {
 	int cap = 40 * c->lv;
@@ -405,7 +437,7 @@ void add_exp(struct class *c, unsigned int exp)
 // Description: Main logic for investing skill points
 void invest_sp(struct class *c, int pos)
 {
-	if(c->name[0] == 'A' && c->sp > 0)
+	if(c->name[0] == 'A' && c->sp > 0) // Alchemist
 	{
 
 		switch(pos)
@@ -604,7 +636,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'D' && c->sp > 0)
+	if(c->name[0] == 'D' && c->sp > 0) // Dark Hunter
 	{
 
 		switch(pos)
@@ -803,7 +835,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'L' && c->sp > 0)
+	if(c->name[0] == 'L' && c->sp > 0) // Landsknecht
 	{
 		switch(pos)
 		{
@@ -997,7 +1029,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'S' && c->sp > 0)
+	if(c->name[0] == 'S' && c->sp > 0) // Survivalist
 	{
 
 		switch(pos)
@@ -1046,7 +1078,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'T' && c->sp > 0)
+	if(c->name[0] == 'T' && c->sp > 0) // Troubadour
 	{
 
 		switch(pos)
@@ -1095,7 +1127,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'M' && c->sp > 0)
+	if(c->name[0] == 'M' && c->sp > 0) // Medic
 	{
 
 		switch(pos)
@@ -1144,7 +1176,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'R' && c->sp > 0)
+	if(c->name[0] == 'R' && c->sp > 0) // Ronin
 	{
 
 		switch(pos)
@@ -1193,7 +1225,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'H' && c->sp > 0)
+	if(c->name[0] == 'H' && c->sp > 0) // Hexer
 	{
 
 		switch(pos)
@@ -1242,7 +1274,7 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
-	if(c->name[0] == 'P' && c->sp > 0)
+	if(c->name[0] == 'P' && c->sp > 0) // Protector
 	{
 
 		switch(pos)
