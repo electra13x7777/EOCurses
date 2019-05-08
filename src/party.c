@@ -19,7 +19,7 @@
 // Description: Creates a new instance of a pmap structure
 struct pmap* init_pmap(struct class *c, int pos)
 {
-	struct pmap *new = (struct pmap*) malloc(sizeof(struct pmap*));
+	struct pmap *new = (struct pmap*) malloc(sizeof(struct pmap));
 	new->c = c;
 	new->pos = pos;
 	return new;
@@ -30,7 +30,7 @@ struct pmap* init_pmap(struct class *c, int pos)
 // Description: Creates a new instance of a party structure
 struct party* init_party()
 {
-	struct party *new = (struct party*) malloc(40); //48
+	struct party *new = (struct party*) malloc(sizeof(struct party)); //48
 	/*new->front[0] = NULL;
 	new->front[1] = NULL;
 	new->front[2] = NULL;

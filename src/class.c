@@ -1,7 +1,7 @@
 // File: class.c
 // Author: Alex Barney
 //
-// Description: Defines class.h.
+// Description: Defines class.h
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,7 +18,7 @@
 // Description: Creates a new instance of an equipment structure
 struct equipment* init_equipment()
 {
-	struct equipment *new = (struct equipment*) malloc(32);
+	struct equipment *new = (struct equipment*) malloc(sizeof(struct equipment));//32
 	//new->e1 = NULL;
 	//new->e2 = NULL;
 	//new->e3 = NULL;
@@ -98,7 +98,7 @@ void add_equip(struct class *c, struct equip *e, int pos)
 struct class* init_class(char *name, int lv, int hp, int tp, int st, int te,
 		int vi, int ag, int lu)
 {
-	struct class *new = (struct class*) malloc(104);
+	struct class *new = (struct class*) malloc(sizeof(struct class));//104
 	new->name = name;
 	new->lv = lv;
 	memset(new->stats, 0, 6);
@@ -385,13 +385,124 @@ void print_class(struct class *c)
 	printf("Defense: %d\n", c->def);
 }
 
-void level_up(struct class *c)
+// Function: add_exp
+// Return: void
+// Description: Main logic for gaining exp
+void add_exp(struct class *c, unsigned int exp)
 {
-	return;
+	int cap = 40 * c->lv;
+	c->exp += exp;
+	while(c->exp >= cap)
+	{
+		c->lv++;
+		c->sp++;
+		cap = 40*c->lv;
+	}
 }
 
+// Function: invest_sp
+// Return: void
+// Description: Main logic for investing skill points
 void invest_sp(struct class *c, int pos)
 {
+	if(c->name[0] == 'A' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
+	}
+	if(c->name[0] == 'D' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
+	}
 	if(c->name[0] == 'L' && c->sp > 0)
 	{
 		switch(pos)
@@ -586,5 +697,298 @@ void invest_sp(struct class *c, int pos)
 				break;
 		}
 	}
+	if(c->name[0] == 'S' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
 	}
+	if(c->name[0] == 'T' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
+	}
+	if(c->name[0] == 'M' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
+	}
+	if(c->name[0] == 'R' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
+	}
+	if(c->name[0] == 'H' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
+	}
+	if(c->name[0] == 'P' && c->sp > 0)
+	{
+
+		switch(pos)
+		{
+			case(0):
+				break;
+			case(1):
+				break;
+			case(2):
+				break;
+			case(3):
+				break;
+			case(4):
+				break;
+			case(5):
+				break;
+			case(6):
+				break;
+			case(7):
+				break;
+			case(8):
+				break;
+			case(9):
+				break;
+			case(10):
+				break;
+			case(11):
+				break;
+			case(12):
+				break;
+			case(13):
+				break;
+			case(14):
+				break;
+			case(15):
+				break;
+			case(16):
+				break;
+			case(17):
+				break;
+			case(18):
+				break;
+			case(19):
+				break;
+			case(20):
+				break;
+		}
+	}}
 }

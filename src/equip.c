@@ -12,7 +12,7 @@
 struct equip* init_equip(char* classes, char* name, int hp, int tp, int st,
 		int te, int vi, int ag, int lu, int type, int atk, int def)
 {
-	struct equip *new = (struct equip*) malloc(56);
+	struct equip *new = (struct equip*) malloc(sizeof(struct equip)); //56
 	new->classes = classes;
 	new->name = name;
 	new->stats[0] = hp;

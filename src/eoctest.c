@@ -180,12 +180,15 @@ void test_turn_order()
 	{
 		printf("%d\n", *i);
 	}
+	remove_party(p);
 }
 
 void test_skill_points()
 {
 	int *i;
 	struct class *c = parse_class("src/party.txt", 1);
+	struct equipment *eq = parse_equipment(c,1,1,1,1);
+	c->equips = eq;
 	c->sp = 20;
 	for(int i = 0; i < 20; i++)
 	{
@@ -243,7 +246,28 @@ void test_skill_points()
 		printf("%d\n", *i);
 	}
 	printf("\n%d", c->sp);*/
+	remove_class(c);
 }
+
+// Test Adding Exp //
+void test_add_exp()
+{
+	struct class *c = parse_class("src/party.txt", 1);
+	struct equipment *eq = parse_equipment(c,1,1,1,1);
+	c->equips = eq;
+	c->lv = 1;
+	c->exp = 0;
+	c->sp = 3;
+	printf("EXP: %d\n", c->exp);
+	printf("LV: %d\n", c->lv);
+	printf("Skillpoints: %d\n", c->sp);
+	add_exp(c, 148);
+	printf("EXP: %d\n", c->exp);
+	printf("LV: %d\n", c->lv);
+	printf("Skillpoints: %d\n", c->sp);
+	remove_class(c);
+}
+
 // Print Credits //
 void print_credits()
 {
@@ -271,8 +295,9 @@ int main(int argc, char **argv)
 	printf("9  | Test Battle Simulation\n");
 	printf("10 | Test Turn Order\n");
 	printf("11 | Test Skill Points\n");
-	printf("12 | Print Tests\n");
-	printf("13 | Print Credits\n");
+	printf("12 | Test Adding Exp\n");
+	printf("13 | Print Tests\n");
+	printf("14 | Print Credits\n");
 	printf("0  | Exit Test Suite\n");
 	while(1)
 	{
@@ -343,9 +368,13 @@ int main(int argc, char **argv)
 		}
 		if(t == 12)
 		{
-			goto TEST;
+			test_add_exp();
 		}
 		if(t == 13)
+		{
+			goto TEST;
+		}
+		if(t == 14)
 		{
 			print_credits();
 		}
