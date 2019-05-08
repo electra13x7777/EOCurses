@@ -90,7 +90,30 @@ void multihit(int sp); // fires 2-3 shots at once
 void disable(int sp); // damage and chance to bind legs
 void apollon(int sp); // the ultimate bow skill that takes 3 turns
 void owl_eye(int sp); // able to see far away FOEs
-void stalker(int sp); // reduces enemy encounter rate
+void su_stalker(int sp); // reduces enemy encounter rate
 void su_chop(int sp); // Chop wood for materials at item points
 void su_mine(int sp); // mine for materials at item points
 void su_take(int sp); // gather plants for materials at item points
+
+// Troubadour
+void tr_hp_up(int sp, struct class *tr); // increases tr HP
+void tr_tp_up(int sp, struct class *tr); // increases tr TP
+void songs(int sp); // needed to learn songs
+void divinity(int sp); // increases exp gain for entire party
+void bravery(int sp); // increases strength for entire party
+void shelter(int sp); // increases defense for entire party
+void mercury(int sp); // increases speed for entire party
+void erasure(int sp); // removes buffs from all enemies
+void recovery(int sp); // allows the entire party to recover from status ailments quicker
+void stamina(int sp); // increases max HP for entire party
+void blaze(int sp); // adds the element of fire to one party member's weapon
+void frost(int sp); // adds the element of ice to one party member's weapon
+void shock(int sp); // adds the element of lightning to one party member's weapon
+void ifrit(int sp); // increases fire resistance for entire party/decreases for enemies
+void ymir(int sp); // increases ice resistance for entire party/decreases for enemies
+void taranis(int sp); // increases volt resistance for entire party/decreases for enemies
+void healing(int sp); // small amount of HP is restored to the entire party every turn
+void relaxing(int sp); // small amount of TP is restored to the entire party every turn
+void tr_stalker(int sp); // reduces enemy encounter rate
+void tr_return(int sp); // takes party back to previous floor
+void tr_take(int sp); // gather plants for materials at item points
