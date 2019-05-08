@@ -24,7 +24,7 @@ void poison(int sp); // inflicts poison
 void venom(int sp); // inflicts poison to multiple targets
 void sight(int sp); // see all FOEs on the map
 void warp(int sp); // warp to the last visited Geomagnetic Field
-void chop(int sp); // Chop wood for materials at item points
+void al_chop(int sp); // Chop wood for materials at item points
 
 // Dark Hunter
 void dh_hp_up(int sp, struct class *dh); // increases dh HP
@@ -34,7 +34,7 @@ void dh_whips(int sp); // increases whip damage
 void dh_swords(int sp); // increases sword damage
 void dh_boost_up(int sp); // increase the improvement gained when boosted
 void fury(int sp); // increase damage dealt when HP is low
-void cloak(int sp); // enemy won’t target you
+void dh_cloak(int sp); // enemy won’t target you
 void viper(int sp); // whip attack with a chance of poisoning the enemy
 void gag(int sp); // whip attack with a chance of binding the enemy's head
 void shackles(int sp); // whip attack with a chance of binding the enemy's legs
@@ -47,7 +47,7 @@ void mirage(int sp); // sword stab at the enemy’s skull with a chance of confu
 void drain(int sp); // sword stab that drains the enemy’s HP through the blade
 void bait(int sp); // sword skill that uses comrades on either side to bait a trap
 void petrify(int sp); // sword stab at the enemy’s muscles with a chance of stoning
-void take(int sp); // gather plants for materials at item points
+void dh_take(int sp); // gather plants for materials at item points
 
 // Landsknecht
 void la_hp_up(int sp, struct class *la); // increases la HP
@@ -70,4 +70,27 @@ void shocker(int sp); // sword skill that follows fire magic with a shocking sla
 void crush(int sp); // a charging axe strike
 void stunner(int sp); // an axe attack that puts the enemy off-balance
 void silencer(int sp); // an axe skill with a chance of binding the enemy's head
-void mine(int sp); // mine for materials at item points
+void la_mine(int sp); // mine for materials at item points
+
+// Survivalist
+void su_hp_up(int sp, struct class *su); // increases su HP
+void su_tp_up(int sp, struct class *su); // increases su TP
+void su_agi_up(int sp, struct class *su); // increases su AGI
+void su_bows(int sp); // increases bow damage
+void ambush(int sp); // increase premptive chance
+void aware(int sp); // decreases enemy premptive chance
+void 1st_hit(int sp); // chance of acting first next turn
+void trickery(int sp); // lowers all enemy accuracy
+void quicken(int sp); // increases speed of party
+void su_cloak(int sp); // enemy won’t target you
+void escape(int sp); // increase escape chance
+void 1st_turn(int sp); // targeted party member will act just after you cast
+void trueshot(int sp); // powerful, piercing bow skill
+void multihit(int sp); // fires 2-3 shots at once
+void disable(int sp); // damage and chance to bind legs
+void apollon(int sp); // the ultimate bow skill that takes 3 turns
+void owl_eye(int sp); // able to see far away FOEs
+void stalker(int sp); // reduces enemy encounter rate
+void su_chop(int sp); // Chop wood for materials at item points
+void su_mine(int sp); // mine for materials at item points
+void su_take(int sp); // gather plants for materials at item points
