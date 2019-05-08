@@ -97,6 +97,20 @@ void test_class_with_equip()
 	remove_class(c);
 }
 
+void test_class_unequip()
+{
+	struct class *c = parse_class("src/party.txt", 1);
+	struct equipment *eq = parse_equipment(c,2,3,4,5);
+	c->equips = eq;
+	print_class(c);
+	print_equip(c->equips->e1);
+	printf("\nUNEQUIPPING!\n");
+	un_equip(c, 1);
+	print_class(c);
+	print_equip(c->equips->e1);
+	remove_class(c);
+}
+
 // Test Party Parsing //
 void test_party_parser()
 {
@@ -227,6 +241,10 @@ void test_skill_points()
 	invest_sp(c, 5);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Swords: %d\n", c->skills[5]);
+	if(c->skills[4] == 5 && c->skills[5] == 5)
+	{
+		printf("	2-Hit is now available!\n");
+	}
 	invest_sp(c, 6);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("2-Hit: %d\n", c->skills[6]);
@@ -237,6 +255,10 @@ void test_skill_points()
 	printf("Skillpoints: %d\n", c->sp);
 	printf("2-Hit: %d\n", c->skills[6]);
 	printf("Swords: %d\n", c->skills[5]);
+	if(c->skills[5] == 5 && c->skills[6] == 3)
+	{
+		printf("	Allslash is now available!\n");
+	}
 	invest_sp(c, 13);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Allslash: %d\n", c->skills[13]);
@@ -279,6 +301,26 @@ void print_credits()
 	printf("Upstream URL: https://github.com/electra13x7777/EOCurses\n");
 }
 
+enum tests
+{
+	EXT,
+	ENP,
+	EQP,
+	EQC,
+	TCP,
+	TCC,
+	CWE,
+	CUE,
+	TPP,
+	TMP,
+	TBS,
+	TTO,
+	TSP,
+	TAE,
+	PT,
+	PC
+};
+
 int main(int argc, char **argv)
 {
 	int t;
@@ -290,14 +332,15 @@ int main(int argc, char **argv)
 	printf("4  | Test Class Parser\n");
 	printf("5  | Test Class Creator\n");
 	printf("6  | Test Class With Equip\n");
-	printf("7  | Test Party Parser\n");
-	printf("8  | Test Music Playback\n");
-	printf("9  | Test Battle Simulation\n");
-	printf("10 | Test Turn Order\n");
-	printf("11 | Test Skill Points\n");
-	printf("12 | Test Adding Exp\n");
-	printf("13 | Print Tests\n");
-	printf("14 | Print Credits\n");
+	printf("7  | Test Class Unequip\n");
+	printf("8  | Test Party Parser\n");
+	printf("9  | Test Music Playback\n");
+	printf("10 | Test Battle Simulation\n");
+	printf("11 | Test Turn Order\n");
+	printf("12 | Test Skill Points\n");
+	printf("13 | Test Adding Exp\n");
+	printf("14 | Print Tests\n");
+	printf("15 | Print Credits\n");
 	printf("0  | Exit Test Suite\n");
 	while(1)
 	{
@@ -305,39 +348,43 @@ int main(int argc, char **argv)
 		scanf("%d", &t);
 		printf("\n");
 
-		if(t == 0)
+		if(t == EXT)
 		{
 			exit(0);
 		}
-		if(t == 1)
+		if(t == ENP)
 		{
 			test_enemy_parser();
 		}
-		if(t == 2)
+		if(t == EQP)
 		{
 			test_equip_parser();
 		}
-		if(t == 3)
+		if(t == EQC)
 		{
 			test_equip_creator();
 		}
-		if(t == 4)
+		if(t == TCP)
 		{
 			test_class_parser();
 		}
-		if(t == 5)
+		if(t == TCC)
 		{
 			test_class_creator();
 		}
-		if(t == 6)
+		if(t == CWE)
 		{
 			test_class_with_equip();
 		}
-		if(t == 7)
+		if(t == CUE)
+		{
+			test_class_unequip();
+		}
+		if(t == TPP)
 		{
 			test_party_parser();
 		}
-		if(t == 8)
+		if(t == TMP)
 		{
 			argc = 2;
 			if(!alutInit(&argc, argv))
@@ -354,27 +401,27 @@ int main(int argc, char **argv)
 			play_song(argv[1]);
 			alutExit();
 		}
-		if(t == 9)
+		if(t == TBS)
 		{
 			sim();
 		}
-		if(t == 10)
+		if(t == TTO)
 		{
 			test_turn_order();
 		}
-		if(t == 11)
+		if(t == TSP)
 		{
 			test_skill_points();
 		}
-		if(t == 12)
+		if(t == TAE)
 		{
 			test_add_exp();
 		}
-		if(t == 13)
+		if(t == PT)
 		{
 			goto TEST;
 		}
-		if(t == 14)
+		if(t == PC)
 		{
 			print_credits();
 		}

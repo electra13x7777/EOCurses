@@ -69,10 +69,10 @@ void un_equip(struct class *c, int pos)
 				c->stats[4] -= c->equips->e1->stats[4];
 				c->stats[5] -= c->equips->e1->stats[5];
 				c->stats[6] -= c->equips->e1->stats[6];
-				c->atk -= c->equips->e1->stats[2];
-				c->def -= c->equips->e1->stats[4];
+				c->atk -= c->equips->e1->stats[2] + c->equips->e1->atk;
+				c->def -= c->equips->e1->stats[4] + c->equips->e1->def;
 				remove_equip(c->equips->e1);
-				c->equips->e1 = parse_equip(0);
+				c->equips->e1 = parse_equip(1);
 			}
 			break;
 		case(2):
@@ -85,10 +85,10 @@ void un_equip(struct class *c, int pos)
 				c->stats[4] -= c->equips->e2->stats[4];
 				c->stats[5] -= c->equips->e2->stats[5];
 				c->stats[6] -= c->equips->e2->stats[6];
-				c->atk -= c->equips->e2->stats[2];
-				c->def -= c->equips->e2->stats[4];
+				c->atk -= c->equips->e2->stats[2] + c->equips->e2->atk;
+				c->def -= c->equips->e2->stats[4] + c->equips->e2->def;
 				remove_equip(c->equips->e2);
-				c->equips->e2 = parse_equip(0);
+				c->equips->e2 = parse_equip(1);
 			}
 			break;
 		case(3):
@@ -101,10 +101,10 @@ void un_equip(struct class *c, int pos)
 				c->stats[4] -= c->equips->e3->stats[4];
 				c->stats[5] -= c->equips->e3->stats[5];
 				c->stats[6] -= c->equips->e3->stats[6];
-				c->atk -= c->equips->e3->stats[2];
-				c->def -= c->equips->e3->stats[4];
+				c->atk -= c->equips->e3->stats[2] + c->equips->e3->atk;
+				c->def -= c->equips->e3->stats[4] + c->equips->e3->def;
 				remove_equip(c->equips->e3);
-				c->equips->e3 = parse_equip(0);
+				c->equips->e3 = parse_equip(1);
 			}
 			break;
 		case(4):
@@ -117,10 +117,10 @@ void un_equip(struct class *c, int pos)
 				c->stats[4] -= c->equips->e4->stats[4];
 				c->stats[5] -= c->equips->e4->stats[5];
 				c->stats[6] -= c->equips->e4->stats[6];
-				c->atk -= c->equips->e4->stats[2];
-				c->def -= c->equips->e4->stats[4];
+				c->atk -= c->equips->e4->stats[2] + c->equips->e4->atk;
+				c->def -= c->equips->e4->stats[4] + c->equips->e4->def;
 				remove_equip(c->equips->e4);
-				c->equips->e4 = parse_equip(0);
+				c->equips->e4 = parse_equip(1);
 			}
 			break;
 	}
