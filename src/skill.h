@@ -9,8 +9,8 @@ void fire_up(int sp, int fd); // increases Fire
 void ice_up(int sp, int id); // increases Ice
 void volt_up(int sp, int vd); // increases Volt
 void toxins(int sp); // increases Poison
-void scavenge(int sp); // increases chance of battle item drop
-void tp_regen(int sp, struct class *al); // restores TP every turn
+void al_scavenge(int sp); // increases chance of battle item drop
+void al_tp_regen(int sp, struct class *al); // restores TP every turn
 void fire(int sp); // fire damage
 void flame(int sp); // large fire damage
 void inferno(int sp); // large multitarget fire damage
@@ -117,3 +117,26 @@ void relaxing(int sp); // small amount of TP is restored to the entire party eve
 void tr_stalker(int sp); // reduces enemy encounter rate
 void tr_return(int sp); // takes party back to previous floor
 void tr_take(int sp); // gather plants for materials at item points
+
+// Medic
+void me_hp_up(int sp, struct class *me); // increases me HP
+void me_tp_up(int sp, struct class *me); // increases me TP
+void me_atk_up(int sp, struct class *me); // increases me ATK
+void caduceus(int sp); // attack with a chance of stunning an enemy
+void healer(int sp); // increase healing
+void patch_up(int sp); // heal after battle
+void me_scavenge(int sp); // increases chance of battle item drop
+void me_tp_regen(int sp, struct class *me); // restores TP every turn
+void cure(int sp); // small healing for a party member
+void cure_ii(int sp); // medium healing for a party member
+void cure_iii(int sp); // full healing for a party member
+void salve(int sp); // small healing for entire party
+void salve_ii(int sp); // medium healing for entire party
+void unbind(int sp); // removes binds from a party member
+void immunize(int sp); // increases elemental resistance for party
+void refresh(int sp); // remove amount of debufs from party member as SP val
+void regen(int sp); // small healing for a party member each turn
+void cpr(int sp); // chance for entire party to survive mortal blows with 1 HP
+void revive(int sp); // revive party member from the dead
+void h_touch(int sp); // healing for a party member outside battle for small TP
+void me_chop(int sp); // Chop wood for materials at item points
