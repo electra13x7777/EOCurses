@@ -1,4 +1,4 @@
-// File: eocalc.c
+// File: attack.c
 // Author: Alex Barney
 //
 // Description: Damage calculator for Etrian Odyssey.
