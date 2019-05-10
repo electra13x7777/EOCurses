@@ -1,0 +1,198 @@
+TP Up,Increases maximum TP.,Stat Increase,Available at Start
+Fire Up,Increases fire damage. Needed to learn fire skills.,Stat Increase,Available at Start
+Ice Up,Increase ice damage. Needed to learn ice skills.,Stat Increase,Available at Start
+Volt Up,Increase volt damage. Needed to learn volt skills.,Stat Increase,Available at Start
+Toxins,Increase poison damage. Needed to learn poison skills.,Stat Increase,Available at Start
+Scavenge,Increases the chance of finding items after battle.,Passive,TP Up Lv.3
+TP Regen,Restores a small amount of TP after every turn in battle.,Passive,TP Up Lv.10
+Fire,Conjure forth fire to attack an enemy.,Fire Alchemy,Fire Up Lv.1
+Flame,Conjure forth flame to attack an enemy.,Fire Alchemy,Fire Up Lv.5 Fire Lv.3
+Inferno,Conjure forth an inferno to attack all enemies.,Fire Alchemy,Fire Up Lv.5
+Ice,Conjure forth ice to attack an enemy.,Ice Alchemy,Ice Up Lv.1
+Freeze,Conjure forth icicles to attack an enemy.,Ice Alchemy,Ice Up Lv.5 Ice Lv.3
+Cocytus,Conjure forth a blizzard to attack all enemies.,Ice Alchemy,Ice Up Lv.5
+Volt,Conjure forth voltage to attack an enemy.,Volt Alchemy,Volt Up Lv.1
+Thunder,Conjure forth lightning to attack an enemy.,Volt Alchemy,Volt Up Lv.5 Volt Lv.3
+Thor,Conjure forth divine thunder to attack all enemies.,Volt Alchemy,Volt Up Lv.5
+Poison,Chance of transmuting an enemy's blood to poison.,Poison Alchemy,Toxins Lv.1
+Venom,Chance of transmuting all enemies' blood to poison.,Poison Alchemy,Toxins Lv.5
+Sight,Conjure sight to see all FOEs on the map.,Field Alchemy,TP Up Lv.5
+Warp,Conjure a warp to the last visited Geomagnetic Field.,Field Alchemy,TP Up Lv.7
+Chop,Chop wood for materials at item points.,Gather,Available at Start
+
+Skill,Description,Type,Prerequisite
+HP Up,Increase maximum HP.,Stat Increase,Available at Start
+TP Up,Increase maximum TP.,Stat Increase,Available at Start
+ATK Up,Increase physical damage in battle.,Stat Increase,Available at Start
+Whips,Increase whip damage.,Stat Increase,Available at Start
+Swords,Increase sword damage.,Stat Increase,Available at Start
+Boost Up,Increase the improvement gained when boosted.,Passive,ATK Up Lv.3
+Fury,Increase damage dealt when HP is low.,Passive,ATK Up Lv.5
+Cloak,Hide in the shadows so the enemy won’t target you.,Defensive Skill,TP Up Lv.3
+Viper,Whip attack with a chance of poisoning the enemy.,Debilitation Whip Skill,Whips Lv.1
+Gag,Whip attack with a chance of binding the enemy’s head.,Binding Whip Skill,Whips Lv.2
+Shackles,Whip attack with a chance of binding the enemy’s legs.,Binding Whip Skill,Whips Lv.3
+Cuffs,Whip attack with a chance of binding the enemy’s arms.,Binding Whip Skill,Whips Lv.4
+Ecstasy,Whip skill that does incredible damage to totally bound enemies.,Offensive Whip Skill,Whips Lv.5 ATK Up Lv.5
+Climax,Whip skill that may kill and drain enemies with low HP.,Offensive Whip Skill,Whips Lv.10
+Hypnos,Sword stab with a chance of putting the enemy to sleep.,Debilitation Sword Skill,Swords Lv.1
+Nerve,Sword stab at the enemy’s nerves with a chance of paralyzing it.,Debilitation Sword Skill,Swords Lv.2
+Mirage,Sword stab at the enemy’s skull with a chance of confusing it.,Debilitation Sword Skill,Swords Lv.3
+Drain,Sword stab that drains the enemy’s HP through the blade.,Offensive Sword Skill,Swords Lv.4
+Bait,Sword skill that uses comrades on either side to bait a trap.,Offensive Sword Skill,Swords Lv.5 ATK Up Lv.5
+Petrify,Sword stab at the enemy’s muscles with a chance of stoning.,Debilitation Sword Skill,Swords Lv.10
+Take,Gather plants for materials at item points.,Gather,Available at Start
+
+HP Up,Increase maximum HP.,Stat Increase,-----
+TP Up,Increase maximum TP.,Stat Increase,-----
+ATK Up,Increase physical damage.,Stat Increase,-----
+DEF Up,Increase physical defense.,Stat Increase,-----
+Axes,Increase damage dealt with axes.,Stat Increase,-----
+Swords,Increase damage dealt with swords.,Stat Increase,-----
+2-Hit,Normal weapon attacks have a chance of hitting twice.,Passive Skill,Axes Lv5 Swords Lv5
+War Cry,Increase attack power at the expense of defense.,Enhancement Skill,ATK Up Lv3
+Hell Cry,Abandon defense and stamina for greatly strengthened attack.,ATK Up Lv10
+Arm Heal,Regain the use of bound arms.,Healing Skill,DEF Up Lv1
+Flee,Sacrifice HP to escape from battle to the previous floor.,Escape Skill,DEF Up Lv5
+Cleaver,A rushing sword slash.,Sword Skill,Swords Lv1
+Tornado,A whirling sword skill that strikes adjacent enemies.,Swords Lv5
+Allslash,A sword skill that hits a group of enemies 2-4 times.,Swords Lv5 2-Hit Lv3
+Blazer,Sword skill that follows fire magic with a flaming slash.,Swords Lv7 TP Up Lv3
+Freezer,Sword skill that follows ice magic with a freezing slash.,Swords Lv7 TP Up Lv3
+Shocker,Sword skill that follows volt magic with a shocking slash.,Swords Lv7 TP Up Lv3
+Crush,A charging axe strike.,Axe Skill,Axes Lv1
+Stunner,An axe attack that puts the enemy off-balance.,Axes Lv3
+Silencer,An axe skill with a chance of binding the enemy's head.,Axes Lv7
+Mine,Mine for materials at item points.,Search Skill,-----
+
+HP Up,Increase HP,Stat Increase,Available at Start
+TP Up,Increase TP,Stat Increase,Available at Start
+AGI Up,Increase AGI,Stat Increase,Available at Start
+Bows,Increase bow damage,Stat Increase,Available at Start
+Ambush,Increase chance of preemptive attack,Passive,AGI Up Lv.3
+Aware,Lessens chance of enemy's preemptive attack,Field Skill,Ambush Lv.2
+1st Hit,Chance of acting first in next turn,Passive,AGI Up Lv.5 1st Turn Lv.3
+Trickery,Lowers all enemy accuracy,Weakening Skill,AGI Up Lv.1
+Quicken,Increases speed of party,Enhancement Skill,AGI Up Lv.1
+Cloak,Hide in the shadows so that the enemy will not target you. It increases evasion.,Defensive Skill,Trickery Lv3
+Escape,Increases chance of escape, at high levels raises defense.,Defensive Skill,Quicken Lv.3
+1st Turn,Targeted party member will act just after you cast,Enhancement Skill,Quicken Lv.3 Trickery Lv.3
+Trueshot,Powerful, piercing bow skill,Offensive Bow Skill,Bows Lv.1
+Multihit,Fires 2-3 shots at once,Offensive Bow Skill,Bows Lv.5
+Disable,Damage and chance to bind legs,Binding Bow Skill,Bows Lv.3
+Apollon,The ultimate bow skill that takes 3 turns for its effects to be felt.,Offensive Bow Skill,Bows Lv.10
+Owl-Eye,Able to see far away FOEs,Field Skill,Ambush Lv.1
+Stalker,Reduces enemy encounter rate,Field Skill,Ambush Lv.3
+Chop,Chops wood, with each level increase there is an increased success rate and an increased max usage per day.,Gather,Available at Start
+Mine,Mines ground for stones, with each level increase there is an increased success rate and an increased max usage per day.,Gather,Available at Start
+Take,Takes plants, with each level increase there is an increased success rate and increase max usage per day.,Gather,Available at Start
+
+HP Up,Increases max HP.,Stat Increase,Available at Start
+TP Up,Increases max TP.,Stat Increase,Available at Start
+Songs,Needed to learn songs.,Stat Increase,Available at Start
+Divinity,Increases exp gain for entire party.,Passive,Songs Lv.10 Recovery Lv.5
+Bravery,Increases strength for entire party,Enhancement Performance,Songs Lv.1
+Shelter,Increases defense for entire party.
+Mercury,Increases speed for entire party.
+Erasure,Removes buffs from all enemies.,Weakening Performance,Songs Lv.3
+Recovery,Allows the entire party to recover from status ailments quicker.,Enhancement Performance
+Stamina,Increases max HP for entire party.,Enhancement Performance,Songs Lv.3 HP Up Lv.3
+Blaze,Adds the element of fire to one party member's weapon.,Enhancement Performance,Songs Lv.5 Bravery Lv.3
+Frost,Adds the element of ice to one party member's weapon.
+Shock,Adds the element of lightning to one party member's weapon.
+Ifrit,Increases fire resistance for the entire party, and decreases it for all enemies.,Enhancement Performance,Songs Lv.7
+Ymir,Increases ice resistance for the entire party, and decreases it for all enemies.
+Taranis,Increases volt resistance for the entire party, and decreases it for all enemies.
+Healing,A small amount of HP is restored to the entire party every turn.,Healing Performance,Songs Lv.7 HP Up Lv.5
+Relaxing,A small amount of TP is restored to the entire party every turn.,Healing Performance,Songs Lv.7 TP Up Lv.5
+Stalker,Reduces chance of enemy encounters.,Field Performance,TP Up Lv.5
+Return,Takes your party back to previous floor.,Field Performance,Stalker Lv.3
+Take,Take plants, with each level increase the chance of finding increases as well as the max usage.,Gather,Available at Start
+
+HP Up,Increase max HP.,Stat Increase,-----
+TP Up,Increase max TP.,Stat Increase,-----
+ATK Up,Increase physical damage.,Stat Increase,-----
+Caduceus,Attack with chance of stunning an enemy.,Staff Skill,ATK Up Lv10,
+Healer,Increase healing. Needed to learn healing skills.,Stat Increase,-----
+Patch Up,Small healing after battle with no TP cost.,Passive Skill,Healer Lv2,
+Scavenge,Increase chances of enemy drop items.,Search Skill,TP Up Lv3,
+TP Regen,Regenerates TP every turn in battle.,Passive Skill,TP Up Lv10,
+Cure,Small healing for a party member.,Healing Skill,Healer Lv1,
+Cure II,Medium healing for a party member.,Healing Skill,Healer Lv3,
+Unbind,Removes bindings from a party member.,Healing Skill,Healer Lv3
+Salve,Small healing for entire party.,Healing Skill,Healer Lv3 Cure Lv3,
+Immunize,Increases resistance to all elements for entire party.,Defense Skill,Healer Lv3 Salve Lv3
+Cure III,Full healing for a party member.,Healing Skill,Healer Lv5,
+Refresh,Removes debuffs from entire party. Each level removes a buff.,Healing Skill,Healer Lv5
+Regen,Buff that causes small healing for a party member each turn.,Healing Skill,Healer Lv5 Cure Lv5,
+Salve II,Medium healing for entire party.,Healing Skill,Healer Lv5 Cure II Lv3,
+CPR,Chance for entire party to survive mortal blows with 1 HP.,Defense Skill,Immunize Lv3 Salve II Lv5,
+Revive,Revives a party member from the dead.,Healing Skill,Healer Lv7 Cure III Lv3,
+H. Touch,Percentage healing for a party member outside battle for small TP.,Healing Skill,Healer Lv10
+Chop,Chop wood, increase success rate and max per day.,Search Skill,-----
+
+HP up,Increase maximum HP.,Stat Increase,Available at Start
+TP up,Increase maximum TP.,Stat Increase,Available at Start
+ATK up,Increase physical damage.,Stat Increase,Available at Start
+Katanas,Increase katana damage.,Stat Increase,Available at Start
+Sight,Increase attack damage at night or when blinded.,Passive,ATK Up Lv.3
+Crit up,Increase chances of critical strikes.,Passive,ATK Up Lv.5
+Ibuki,Heal HP by taking a deep breath.,Healing Skill,HP Up Lv.3
+Kesagiri,Katana skill of stepping forward while slicing.,Offensive Katana Skill,Katanas Lv.1
+Overhead,Temporary overhead stance that increases attack and defense.,Stance Skill,Katanas Lv.3
+Zamba,Strong katana slice from the Overhead stance.,Offensive Katana Skill,Katanas Lv.5 Overhead Lv.1
+Midareba,Repeated katana slashes from the Overhead stance,Katanas Lv.7 Overhead Lv.3
+Orochi,Execute an fire katana strike from the Overhead stance.,Katanas Lv.10 Overhead Lv.5
+Seigan,Temporary Seigan stance that increases attack and defense.,Stance Skill,Katanas Lv.3
+Mikiri,Deflect an enemy attack with a katana from the Seigan stance.,Defensive Katana Skill.,Katanas Lv.5 Seigan Lv.1
+Koteushi,Immobilize an enemy's arms with a katana from the Seigan stance.,Binding Katana Skill,Katanas Lv.7 Seigan Lv.3
+Raizuki,Execute an volt katana stike from the Seigan stance.,Offensive Katana Skill,Katanas Lv.10 Seigan Lv.5
+Iai,Temporary Iai katana stance that increases speed.,Stance Skill,Katanas Lv.3
+Kubiuchi,Chance of an instant katana kill from the Iai stance.,Offensive Katana Skill,Katanas Lv.5 Iai Lv.1
+Gatotsu,Extremely powerful, lightning-quick katana stab.,Katanas Lv.7 Iai Lv.3
+Hyosetsu,Execute an ice katana strike from the Iai stance.,Katanas Lv.10 Iai Lv.5
+Mine,Mine for materials at item points.,Gather,Available at Start
+
+HP Up,Increases maximum HP.,Stat Increase,Available at Start
+TP Up,Increases maximum TP.,Stat Increase,Available at Start
+Curses,Needed to learn Curses.,Mastery,Available at Start
+Stagger,Chance of stunning enemies at the beginning of the battle.,Passive,Torpor Lv.5 Corrupt Lv.5
+Sapping,Curse that decreases all enemies' strength.,Weakening Curse,Curses Lv.1
+Fraility,Curse that decreases all enemies' defense.
+Leaden,Curse that decreases all enemies' speed.
+Blinding,Curse that has a chance to blind all enemies.,Debilitation Curse,Curses Lv.2
+Relapse,Curse that decreases enemy recovery time from status aiments.,Weakening Curse,Curses Lv.3
+Cranial,Curse that has a chance to bind an enemy's head.,Debilitation Curse,Curses Lv.5
+Abdomen,Curse that has a chance to bind an enemy's arms.
+Immobile,Curse that has a chance of binding an enemy's legs.
+Torpor,Curse that has a chance to put all enemies asleep.,Debilitation Curse,Curses Lv.6
+Corrupt,Curse that has a chance to give all enemies cursed status.,Debilitation Curse,Curses Lv.7
+Revenge,Curse that deals damage to an enemy when struck.,Offensive Curse,Corrupt Lv.10
+Evil Eye,Evil gaze that has a chance of terrifying the enemy.,Debilitation Curse,Curses Lv.10
+Paralyze,Commands a terrified monster to remain motionless.,Fear Curse,Evil Eye Lv.3
+Betrayal,Commands a terrified monster to attack its own comrades,Fear Curse,Evil Eye Lv.5
+Suicide,Commands a terrified enemy to take its own life,Fear Curse,Evil Eye Lv.10
+Lure,Curses the party to encounter more enemies,Field Curse,Evil Eye Lv.1
+Mine,Mine for materials at item points,Gather,Available at Start
+
+HP Up,Increase maximum HP.,Stat Increase,-----
+TP Up,Increase maximum TP.,Stat Increase,-----
+DEF Up,Increase physical defense.,Stat Increase,-----
+Shields,Increase elemental defense.,Stat Increase,-----
+Aegis,Preparedness for death makes it possible to survive with 1 HP.,Passive Skill,DEF Up Lv5
+En Garde,Chance of automatically blocking enemy attacks.,Passive Skill,DEF Up Lv7 Shields Lv7
+Provoke,Increase defense and divert the enemy's attention to you.,Special Skill,DEF Up Lv1
+Flee,Sacrifice HP to escape from battle to the previous floor.,Escape Skill,DEF Up Lv3
+Parry,Await the enemy's attack to parry it and negate the damage.,Defense Skill,
+Fortify,Digs in for ironclad defense against physical damage.,Defense Skill,DEF Up Lv3 Shields Lv3
+Defender,Organizes the party into a formation of increased defense.,Defense Skill,F. Guard Lv3 B. Guard Lv3
+F. Guard,May take damage in the front line's place.,Shield Skill,Shields Lv1
+B. Guard,May take damage in the back line's place.,
+Antifire,Briefly raises the party's fire resistance.,Shield Skill,Shields Lv5 TP Up Lv3
+Antivolt,Briefly raises the party's volt resistance.,Shield Skill,Shields Lv5 TP Up Lv3
+Anticold,Briefly raises the party's ice resistance.,Shield Skill,Shields Lv5 TP Up Lv3
+Smite,Deals a powerful bash to the enemy.,Shield Skill,Shields Lv10 Fortify Lv5
+Cure,Heals a small amount of HP.,Healing Skill,HP Up Lv3
+Cure II,Heals a medium amount of HP.,Healing Skill,HP Up Lv5
+Stalker,Cautious steps reduce the chances of enemy encounters.,Search Skill,DEF Up Lv5
+Mine,Mine for materials at item points.,Search Skill,-----
