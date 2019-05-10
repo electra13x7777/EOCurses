@@ -418,18 +418,20 @@ void print_class(struct class *c)
 }
 
 // Function: add_exp
-// Return: void
+// Return: int
 // Description: Main logic for gaining exp (INTEGER USED IS NOT FINAL)
-void add_exp(struct class *c, unsigned int exp)
+//				Returns he exp needed to gain another level
+int add_exp(struct class *c, unsigned int exp)
 {
-	int cap = 40 * c->lv;
+	int cap = 45 * c->lv;
 	c->exp += exp;
 	while(c->exp >= cap)
 	{
 		c->lv++;
 		c->sp++;
-		cap = 40*c->lv;
+		cap = 45*c->lv;
 	}
+	return cap - c->exp;
 }
 
 // Function: invest_sp

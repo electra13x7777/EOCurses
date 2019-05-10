@@ -51,5 +51,5 @@ void un_equip(struct class *c, int pos);
 void remove_class();
 void print_class(struct class *c);
 // levels and skills //
-void add_exp(struct class *c, unsigned int exp);
+int add_exp(struct class *c, unsigned int exp);
 void invest_sp(struct class *c, int pos);

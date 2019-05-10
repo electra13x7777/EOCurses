@@ -283,10 +283,11 @@ void test_add_exp()
 	printf("EXP: %d\n", c->exp);
 	printf("LV: %d\n", c->lv);
 	printf("Skillpoints: %d\n", c->sp);
-	add_exp(c, 148);
+	int nxtlv = add_exp(c, 148);
 	printf("EXP: %d\n", c->exp);
 	printf("LV: %d\n", c->lv);
 	printf("Skillpoints: %d\n", c->sp);
+	printf("EXP needed to get to lv%d: %d\n", c->lv+1, nxtlv);
 	remove_class(c);
 }
 

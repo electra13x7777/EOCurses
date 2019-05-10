@@ -1,3 +1,8 @@
+// File: batcurse.c
+// Author: Alex Barney
+//
+// Description: Defines battle drawing subroutines
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -13,10 +18,124 @@
 #include "enemy.h"
 #include "party.h"
 #include "music.h"
+#include "batcurse.h"
+
+#define COMMANDS "Attack","Defend","Skills","Items","Boost","Escape"
+
+// Function: party_printw
+// Return: void
+// Description:
+void party_printw(WINDOW **pwinarr, struct party *p, uint8_t fbias, int y, int x)
+{
+	char temp[999];
+
+	if(fbias == 1)
+	{
+		pwinarr[0] = newwin(5, 16, y + 13, x + 20);
+		pwinarr[1] = newwin(5, 16, y + 13, x + 40);
+		pwinarr[2] = newwin(5, 16, y + 13, x + 60);
+		pwinarr[3] = newwin(5, 16, y + 18, x + 30);
+		pwinarr[4] = newwin(5, 16, y + 18, x + 50);
+	}
+	else
+	{
+		pwinarr[0] = newwin(5, 16, y + 13, x + 30);
+		pwinarr[0] = newwin(5, 16, y + 13, x + 50);
+		pwinarr[0] = newwin(5, 16, y + 18, x + 20);
+		pwinarr[0] = newwin(5, 16, y + 18, x + 40);
+		pwinarr[0] = newwin(5, 16, y + 18, x + 60);
+	}
+
+	box(pwinarr[0], 1, 1);
+	box(pwinarr[1], 1, 1);
+	box(pwinarr[2], 1, 1);
+	box(pwinarr[3], 1, 1);
+	box(pwinarr[4], 1, 1);
+
+	mvwaddstr(pwinarr[0], 1, 2, p->p1->c->name);
+	sprintf(temp, "%d HP", p->p1->c->stats[0]);
+	mvwaddstr(pwinarr[0], 2, 2, temp);
+	sprintf(temp, "%d TP", p->p1->c->stats[2]);
+	mvwaddstr(pwinarr[0], 3, 2, temp);
+	wrefresh(pwinarr[0]);
+	noecho();
+
+	mvwaddstr(pwinarr[1], 1, 2, p->p2->c->name);
+	sprintf(temp, "%d HP", p->p2->c->stats[0]);
+	mvwaddstr(pwinarr[1], 2, 2, temp);
+	sprintf(temp, "%d TP", p->p2->c->stats[2]);
+	mvwaddstr(pwinarr[1], 3, 2, temp);
+	wrefresh(pwinarr[1]);
+	noecho();
+
+	mvwaddstr(pwinarr[2], 1, 2, p->p3->c->name);
+	sprintf(temp, "%d HP", p->p3->c->stats[0]);
+	mvwaddstr(pwinarr[2], 2, 2, temp);
+	sprintf(temp, "%d TP", p->p3->c->stats[2]);
+	mvwaddstr(pwinarr[2], 3, 2, temp);
+	wrefresh(pwinarr[2]);
+	noecho();
+
+	mvwaddstr(pwinarr[3], 1, 2, p->p4->c->name);
+	sprintf(temp, "%d HP", p->p4->c->stats[0]);
+	mvwaddstr(pwinarr[3], 2, 2, temp);
+	sprintf(temp, "%d TP", p->p4->c->stats[2]);
+	mvwaddstr(pwinarr[3], 3, 2, temp);
+	wrefresh(pwinarr[3]);
+	noecho();
+
+	mvwaddstr(pwinarr[4], 1, 2, p->p5->c->name);
+	sprintf(temp, "%d HP", p->p5->c->stats[0]);
+	mvwaddstr(pwinarr[4], 2, 2, temp);
+	sprintf(temp, "%d TP", p->p5->c->stats[2]);
+	mvwaddstr(pwinarr[4], 3, 2, temp);
+	wrefresh(pwinarr[4]);
+	noecho();
+
+}
+
+//
+//
+//
+void enemy_printw(WINDOW *ewin, struct enemy *e, uint8_t numen, int y, int x)
+{
+	char temp[999];
+
+	if(numen == 1)
+	{
+		ewin = newwin(5, 16, y + 4, x + 40);
+	}
+	if(numen == 2)
+	{
+		//enemy1 = newwin(5, 16, max_y + 4, max_x + 40);
+	}
+	if(numen == 3)
+	{
+		//enemy1 = newwin(5, 16, max_y + 4, max_x + 40);
+	}
+
+	box(ewin, 1, 1);
+
+	mvwaddstr(ewin, 1, 2, ename);
+	sprintf(temp, "%d HP", e->hp);
+	mvwaddstr(ewin, 2, 2, temp);
+	wrefresh(ewin);
+	noecho();
+}
+
+//
+//
+//
+void command_printw(){}
+
+//
+//
+//
+void hud_printw(){}
 
 void* draw_battle()
 {
-	getmaxyx(stdscr, LINES, COLS);
+/*	getmaxyx(stdscr, LINES, COLS);
 	int max_x = COLS;//getmaxx(stdscr);
 	int max_y = LINES;//getmaxy(stdscr);
 	WINDOW *mainwin;
@@ -32,18 +151,12 @@ void* draw_battle()
 	WINDOW *skillw;
 
 	struct party *p = parse_party("src/party.txt");
-	//struct class *c = init_class("Landsknecht", 30, 200, 48, 39, 27, 29, 31, 39);
-	//char *cname = c->name;
-	//static const char *names[] = {"Landsknecht"};
-	//char *chp = (char*)(c->stats[0]);
-	printf("%d\n", max_x);
 	struct enemy *e = parse_enemy(Fenrir_e);
 	char ename[2000];
 	sprintf(ename, "%s", e->name);
 	// Set Array For Enemy + Class //
 	//char enemybox[2][7] = {e->name,(char*) e->hp};
 
-	char commandbox[6][7] = {"Attack","Defend","Skills","Items","Boost","Escape"};
 	//char classbox[3][16] = {"Landsknecht", "200/200HP", "48/48TP"};
 	//{"Class", "200/200", "Attack", "Defend"};
 
@@ -53,12 +166,6 @@ void* draw_battle()
 
 	initscr(); // init ncurses
 	//mainwin = newwin();
-	class1 = newwin(5, 16, max_y + 13, max_x + 20);
-	class2 = newwin(5, 16, max_y + 13, max_x + 40);
-	class3 = newwin(5, 16, max_y + 13, max_x + 60);
-	class4 = newwin(5, 16, max_y +18, max_x + 30);
-	class5 = newwin(5, 16, max_y +18, max_x + 50);
-	enemy1 = newwin(5, 16, max_y + 4, max_x + 40);
 	command = newwin(8, 11, max_y + 4, max_x + 1); // instantiate window
 	turnw = newwin(3, 11, max_y + 1, max_x + 1);
 	textw = newwin(3, 56, max_y + 1, max_x + 20);
@@ -72,52 +179,7 @@ void* draw_battle()
 	box(turnw, 0, 0); // set default window borders
 	box(textw, 1, 0); // set default window borders
 	// Print Class 1
-	mvwaddstr(class1, 1, 2, p->p1->c->name);//c->name);
-	char temp[999];
-	sprintf(temp, "%d HP", p->p1->c->stats[0]);
-	mvwaddstr(class1, 2, 2, temp);//c->stats[0]);
-	sprintf(temp, "%d TP", p->p1->c->stats[2]);
-	mvwaddstr(class1, 3, 2, temp);
-	wrefresh(class1); // update screen
-	noecho(); // disable echoing
 
-	mvwaddstr(class2, 1, 2, p->p2->c->name);//c->name);
-	sprintf(temp, "%d HP", p->p2->c->stats[0]);
-	mvwaddstr(class2, 2, 2, temp);//c->stats[0]);
-	sprintf(temp, "%d TP", p->p2->c->stats[2]);
-	mvwaddstr(class2, 3, 2, temp);
-	wrefresh(class2); // update screen
-	noecho(); // disable echoing
-
-	mvwaddstr(class3, 1, 2, p->p3->c->name);//c->name);
-	sprintf(temp, "%d HP", p->p3->c->stats[0]);
-	mvwaddstr(class3, 2, 2, temp);//c->stats[0]);
-	sprintf(temp, "%d TP", p->p3->c->stats[2]);
-	mvwaddstr(class3, 3, 2, temp);
-	wrefresh(class3); // update screen
-	noecho(); // disable echoing
-
-	mvwaddstr(class4, 1, 2, p->p4->c->name);//c->name);
-	sprintf(temp, "%d HP", p->p4->c->stats[0]);
-	mvwaddstr(class4, 2, 2, temp);//c->stats[0]);
-	sprintf(temp, "%d TP", p->p4->c->stats[2]);
-	mvwaddstr(class4, 3, 2, temp);
-	wrefresh(class4); // update screen
-	noecho(); // disable echoing
-
-	mvwaddstr(class5, 1, 2, p->p5->c->name);//c->name);
-	sprintf(temp, "%d HP", p->p5->c->stats[0]);
-	mvwaddstr(class5, 2, 2, temp);//c->stats[0]);
-	sprintf(temp, "%d TP", p->p5->c->stats[2]);
-	mvwaddstr(class5, 3, 2, temp);
-	wrefresh(class5); // update screen
-	noecho(); // disable echoing
-
-	mvwaddstr(enemy1, 1, 2, ename);//c->name);
-	sprintf(temp, "%d HP", e->hp);
-	mvwaddstr(enemy1, 2, 2, temp);//c->stats[0]);
-	wrefresh(enemy1); // update screen
-	noecho(); // disable echoing
 
 	mvwaddstr(turnw, 1, 2, "Turn: 1");
 	wrefresh(turnw); // update screen
@@ -293,35 +355,5 @@ void* draw_battle()
 	delwin(class4);
 	delwin(class5);
 	delwin(enemy1);
-	endwin();
-}
-/*
-void* play(void** args)
-{
-	int argc = *( (int*) args[0]);
-	char **argv = *( (char**) args[1]);
-	if(!alutInit(argc,argv))
-	{
-		ALenum error = alutGetError();
-	}
-	play_song(argv[1]);
-}
-*/
-int main(int argc, char **argv)
-{
-	pthread_t curse_thread;
-	pthread_t music_thread;
-	pthread_t threads[2];
-	int curse_pid = pthread_create(&curse_thread, NULL, &draw_battle, NULL);
-	argc = 2;
-	char *fn = "src/utils/music/initialstrike.wav";
-	argv[1] = fn;
-	void* args[2] = {&argc, &argv};
-	int music_pid = pthread_create(&music_thread, NULL, &play_audio, args);
-	threads[1] = curse_thread;
-	threads[0] = music_thread;
-	for(int i = 0; i < 2; i++)
-	{
-		pthread_join(threads[i], NULL);
-	}
+	endwin();*/
 }
