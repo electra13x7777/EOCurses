@@ -1,3 +1,4 @@
+Skill,Description,Type,Prerequisites
 TP Up,Increases maximum TP.,Stat Increase,Available at Start
 Fire Up,Increases fire damage. Needed to learn fire skills.,Stat Increase,Available at Start
 Ice Up,Increase ice damage. Needed to learn ice skills.,Stat Increase,Available at Start
@@ -11,7 +12,7 @@ Inferno,Conjure forth an inferno to attack all enemies.,Fire Alchemy,Fire Up Lv.
 Ice,Conjure forth ice to attack an enemy.,Ice Alchemy,Ice Up Lv.1
 Freeze,Conjure forth icicles to attack an enemy.,Ice Alchemy,Ice Up Lv.5 Ice Lv.3
 Cocytus,Conjure forth a blizzard to attack all enemies.,Ice Alchemy,Ice Up Lv.5
-Volt,Conjure forth voltage to attack an enemy.,Volt Alchemy,Volt Up Lv.1
+Volt,Conjure forth voltage to attack an enemy.,Volt Alchemy Volt Up Lv.1
 Thunder,Conjure forth lightning to attack an enemy.,Volt Alchemy,Volt Up Lv.5 Volt Lv.3
 Thor,Conjure forth divine thunder to attack all enemies.,Volt Alchemy,Volt Up Lv.5
 Poison,Chance of transmuting an enemy's blood to poison.,Poison Alchemy,Toxins Lv.1
