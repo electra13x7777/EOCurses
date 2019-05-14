@@ -17,6 +17,7 @@ Files found in the *pkg* directory use *.eoc* as a filetype and currently can be
 * Makefile included to build binary in *pkg/* from files in *src/*
 * run *make* in main repo folder
 * build completion should print *ASTERISKS EOCurses Build Successful ASTERISKS*
+
 *NOTE*: all commits of EOCurses should build binaries correctly however if this not the case please make a new [issue](https://github.com/electra13x7777/EOCurses/issues) and I will make sure that any problems are resolved as soon as I can
 
 ### Test Procedure
@@ -24,6 +25,7 @@ EOCurses includes a binary for testing purposes: *pkg/eoctest.eoc*. Running the 
 * run the binary with *./eoctest.eoc*
 * enter the integer corresponding to the test you would like to preform
 * check memory allocation with *valgrind ./eoctest.eoc*. For this run a single test and then close the program by entering *0* when the test finishes
+
 *NOTE*: If a test results in a *SEGFAULT* please make a new [issue](https://github.com/electra13x7777/EOCurses/issues) so that I can figure out the problem and get it fixed
 
 ### Features
