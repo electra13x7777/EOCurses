@@ -1005,7 +1005,7 @@ void invest_sp(struct class *c, int pos)
 				}
 				break;
 			case(18): // stunner
-				if(c->skills[5] >= 3)
+				if(c->skills[4] >= 3)
 				{
 					if(c->skills[18] < 10)
 					{

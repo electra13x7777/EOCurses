@@ -214,12 +214,16 @@ void test_skill_points()
 	invest_sp(c, 4);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Axes: %d\n", c->skills[4]);
+	if(c->skills[4] >= 1)
+		printf("	Crush is now available!\n");
 	invest_sp(c, 4);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Axes: %d\n", c->skills[4]);
 	invest_sp(c, 4);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Axes: %d\n", c->skills[4]);
+	if(c->skills[4] >= 3)
+		printf("	Stunner is now available!\n");
 	invest_sp(c, 4);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Axes: %d\n", c->skills[4]);
@@ -229,6 +233,8 @@ void test_skill_points()
 	invest_sp(c, 5);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Swords: %d\n", c->skills[5]);
+	if(c->skills[5] >= 1)
+		printf("	Cleaver is now available!\n");
 	invest_sp(c, 5);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Swords: %d\n", c->skills[5]);
@@ -241,6 +247,8 @@ void test_skill_points()
 	invest_sp(c, 5);
 	printf("Skillpoints: %d\n", c->sp);
 	printf("Swords: %d\n", c->skills[5]);
+	if(c->skills[5] >= 5)
+		printf("	Tornado is now available!\n");
 	if(c->skills[4] == 5 && c->skills[5] == 5)
 	{
 		printf("	2-Hit is now available!\n");
