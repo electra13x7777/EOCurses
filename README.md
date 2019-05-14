@@ -53,7 +53,7 @@ EOCurses includes a binary for testing purposes: *pkg/eoctest.eoc*. Running the 
 ![Battle](https://i.imgur.com/LPL8Ht5.png)
 
 #### Test Output
-![Test](https://i.imgur.com/2Cz5019.png)
+![Test](https://i.imgur.com/GhUwuy4.png)
 
 ### Contact Information
 [Website](http://www.alexbarney.xyz/)

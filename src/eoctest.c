@@ -299,6 +299,82 @@ void test_add_exp()
 	remove_class(c);
 }
 
+// Test Everything //
+void test_all()
+{
+	// test parsing all enemies //
+	int test_all_enemy_parser()
+	{
+		for(int i = 1; i <= 18; i++)
+		{
+			struct enemy *e = parse_enemy(i);
+			print_enemy(e);
+			remove_enemy(e);
+		}
+		return 1;
+	}
+
+	// test parsing all equips //
+	int test_all_equip_parser()
+	{
+		for(int i = 1; i <= 6; i++)
+		{
+			struct equip *e = parse_equip(i);
+			print_equip(e);
+			remove_equip(e);
+		}
+		return 1;
+	}
+
+	// test parsing all classes //
+	int test_all_class_parser()
+	{
+		for(int i = 1; i <= 5; i++)
+		{
+			struct class *c = parse_class("src/party.txt", i);
+			struct equipment *eq = parse_equipment(c,1,1,1,1);
+			c->equips = eq;
+			print_class(c);
+			remove_class(c);
+		}
+		return 1;
+	}
+
+
+	int taep = test_all_enemy_parser();
+	int taeqp = test_all_equip_parser();
+	int tacp = test_all_class_parser();
+	printf("\nTEST ALL RESULTS:\n");
+	printf("ENEMY PARSING: ");
+	if(taep == 1)
+	{
+		printf("PASSED\n");
+	}
+	else
+	{
+		printf("FAILED\n");
+	}
+	printf("EQUIP PARSING: ");
+	if(taeqp == 1)
+	{
+		printf("PASSED\n");
+	}
+	else
+	{
+		printf("FAILED\n");
+	}
+	printf("CLASS PARSING: ");
+	if(tacp == 1)
+	{
+		printf("PASSED\n");
+	}
+	else
+	{
+		printf("FAILED\n");
+	}
+
+}
+
 // Print Credits //
 void print_credits()
 {
@@ -326,6 +402,7 @@ enum tests
 	TTO,
 	TSP,
 	TAE,
+	TAL,
 	PT,
 	PC
 };
@@ -348,8 +425,9 @@ int main(int argc, char **argv)
 	printf("11 | Test Turn Order\n");
 	printf("12 | Test Skill Points\n");
 	printf("13 | Test Adding Exp\n");
-	printf("14 | Print Tests\n");
-	printf("15 | Print Credits\n");
+	printf("14 | Test Everything\n");
+	printf("15 | Print Tests\n");
+	printf("16 | Print Credits\n");
 	printf("0  | Exit Test Suite\n");
 	while(1)
 	{
@@ -425,6 +503,10 @@ int main(int argc, char **argv)
 		if(t == TAE)
 		{
 			test_add_exp();
+		}
+		if(t == TAL)
+		{
+			test_all();
 		}
 		if(t == PT)
 		{
