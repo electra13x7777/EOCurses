@@ -1618,7 +1618,7 @@ void invest_sp(struct class *c, int pos)
 				}
 				break;
 			case(19): // h_touch
-				if(c->skills[4] >= 10)
+				if(c->skills[4] == 10)
 				{
 					if(c->skills[19] < 10)
 					{
@@ -1641,47 +1641,200 @@ void invest_sp(struct class *c, int pos)
 
 		switch(pos)
 		{
-			case(0):
+			case(0): // hp_up
+				if(c->skills[0] < 10)
+				{
+					c->skills[0] += 1;
+					c->sp--;
+				}
 				break;
-			case(1):
+			case(1): // tp_up
+				if(c->skills[1] < 10)
+				{
+					c->skills[1] += 1;
+					c->sp--;
+				}
 				break;
-			case(2):
+			case(2): // atk up
+				if(c->skills[2] < 10)
+				{
+					c->skills[2] += 1;
+					c->sp--;
+				}
 				break;
-			case(3):
+			case(3): // katanas
+				if(c->skills[3] < 10)
+				{
+					c->skills[3] += 1;
+					c->sp--;
+				}
 				break;
-			case(4):
+			case(4): // sight
+				if(c->skills[2] >= 3)
+				{
+					if(c->skills[4] < 10)
+					{
+						c->skills[4] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(5):
+			case(5): // crit up
+				if(c->skills[2] >= 5)
+				{
+					if(c->skills[5] < 10)
+					{
+						c->skills[5] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(6):
+			case(6): // ibuki
+				if(c->skills[0] >= 3)
+				{
+					if(c->skills[6] < 10)
+					{
+						c->skills[6] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(7):
+			case(7): // kesagiri
+				if(c->skills[3] >= 1)
+				{
+					if(c->skills[7] < 10)
+					{
+						c->skills[7] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(8):
+			case(8): // overhead
+				if(c->skills[3] >= 3)
+				{
+					if(c->skills[8] < 10)
+					{
+						c->skills[8] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(9):
+			case(9): // zamba
+				if(c->skills[3] >= 5 && c->skills[8] >= 1)
+				{
+					if(c->skills[9] < 10)
+					{
+						c->skills[9] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(10):
+			case(10): // midareba
+				if(c->skills[3] >= 7 && c->skills[8] >= 3)
+				{
+					if(c->skills[10] < 10)
+					{
+						c->skills[10] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(11):
+			case(11): // orochi
+				if(c->skills[3] == 10 && c->skills[8] >= 5)
+				{
+					if(c->skills[11] < 10)
+					{
+						c->skills[11] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(12):
+			case(12): // seigan
+				if(c->skills[3] >= 3)
+				{
+					if(c->skills[12] < 10)
+					{
+						c->skills[12] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(13):
+			case(13): // mikiri
+				if(c->skills[3] >= 5 && c->skills[12] >= 1)
+				{
+					if(c->skills[13] < 10)
+					{
+						c->skills[13] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(14):
+			case(14): // koteushi
+				if(c->skills[3] >= 7 && c->skills[12] >= 3)
+				{
+					if(c->skills[14] < 10)
+					{
+						c->skills[14] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(15):
+			case(15): // raizuki
+				if(c->skills[3] == 10 && c->skills[12] >= 5)
+				{
+					if(c->skills[15] < 10)
+					{
+						c->skills[15] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(16):
+			case(16): // iai
+				if(c->skills[3] >= 3)
+				{
+					if(c->skills[16] < 10)
+					{
+						c->skills[16] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(17):
+			case(17): // kubiuchi
+				if(c->skills[3] >= 5 && c->skills[16] >= 1)
+				{
+					if(c->skills[17] < 10)
+					{
+						c->skills[17] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(18):
+			case(18): // gaotsu
+				if(c->skills[3] >= 7 && c->skills[16] >= 3)
+				{
+					if(c->skills[18] < 10)
+					{
+						c->skills[18] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(19):
+			case(19): // hyosetsu
+				if(c->skills[3] == 10 && c->skills[16] >= 5)
+				{
+					if(c->skills[19] < 10)
+					{
+						c->skills[19] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(20):
+			case(20): // mine
+				if(c->skills[20] < 10)
+				{
+					c->skills[20] += 1;
+					c->sp--;
+				}
 				break;
 		}
 	}
