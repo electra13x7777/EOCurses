@@ -50,7 +50,7 @@ EOCurses includes a binary for testing purposes: *pkg/eoctest.eoc*. Running the 
 ### Screencaps
 
 #### Battle Graphics
-![Battle](https://i.imgur.com/LPL8Ht5.png)
+![Battle](https://i.imgur.com/cqixGQ5.png)
 
 #### Test Output
 ![Test](https://i.imgur.com/GhUwuy4.png)
