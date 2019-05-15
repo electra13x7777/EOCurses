@@ -8,7 +8,7 @@
 // Struct: enemy
 //
 // Description: Stores name and relative stats for an enemy
-struct enemy
+struct __attribute__((__packed__)) enemy
 {
 	char* name; // enemy name
 	int hp; // enemy health
