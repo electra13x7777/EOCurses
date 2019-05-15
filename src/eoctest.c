@@ -97,6 +97,7 @@ void test_class_with_equip()
 	remove_class(c);
 }
 
+// Test Class Unequip //
 void test_class_unequip()
 {
 	struct class *c = parse_class("src/party.txt", 1);
@@ -305,6 +306,7 @@ void test_all()
 	// test parsing all enemies //
 	int test_all_enemy_parser()
 	{
+		printf("BEGIN TESTING ENEMY PARSER\n");
 		for(int i = 1; i <= 18; i++)
 		{
 			struct enemy *e = parse_enemy(i);
@@ -317,6 +319,7 @@ void test_all()
 	// test parsing all equips //
 	int test_all_equip_parser()
 	{
+		printf("\nBEGIN TESTING EQUIP PARSER\n");
 		for(int i = 1; i <= 6; i++)
 		{
 			struct equip *e = parse_equip(i);
@@ -329,6 +332,7 @@ void test_all()
 	// test parsing all classes //
 	int test_all_class_parser()
 	{
+		printf("\nBEGIN TESTING CLASS PARSER\n");
 		for(int i = 1; i <= 5; i++)
 		{
 			struct class *c = parse_class("src/party.txt", i);
@@ -340,15 +344,95 @@ void test_all()
 		return 1;
 	}
 
+	int test_all_party_unequip()
+	{
+		struct party *p = parse_party("src/party.txt");
+		struct equipment *eq1 = parse_equipment(p->p1->c,2,3,4,5);
+		//struct equipment *eq2 = parse_equipment(p->p2->c,2,3,4,5);
+		//struct equipment *eq3 = parse_equipment(p->p3->c,2,3,4,5);
+		//struct equipment *eq4 = parse_equipment(p->p4->c,2,3,4,5);
+		//struct equipment *eq5 = parse_equipment(p->p5->c,2,3,4,5);
+		printf("\nEQUIPPING P1\n");
+		p->p1->c->equips = eq1;
+		print_class(p->p1->c);
+		print_equip(p->p1->c->equips->e1);
+		print_equip(p->p1->c->equips->e2);
+		print_equip(p->p1->c->equips->e3);
+		print_equip(p->p1->c->equips->e4);
+		printf("\nEQUIPPING P2\n");
+		p->p2->c->equips = eq1;
+		print_class(p->p2->c);
+		print_equip(p->p2->c->equips->e1);
+		print_equip(p->p2->c->equips->e2);
+		print_equip(p->p2->c->equips->e3);
+		print_equip(p->p2->c->equips->e4);
+		printf("\nEQUIPPING P3\n");
+		p->p3->c->equips = eq1;
+		print_class(p->p3->c);
+		print_equip(p->p3->c->equips->e1);
+		print_equip(p->p3->c->equips->e2);
+		print_equip(p->p3->c->equips->e3);
+		print_equip(p->p3->c->equips->e4);
+		printf("\nEQUIPPING P4\n");
+		p->p4->c->equips = eq1;
+		print_class(p->p4->c);
+		print_equip(p->p4->c->equips->e1);
+		print_equip(p->p4->c->equips->e2);
+		print_equip(p->p4->c->equips->e3);
+		print_equip(p->p4->c->equips->e4);
+		printf("\nEQUIPPING P5\n");
+		p->p5->c->equips = eq1;
+		print_class(p->p5->c);
+		print_equip(p->p5->c->equips->e1);
+		print_equip(p->p5->c->equips->e2);
+		print_equip(p->p5->c->equips->e3);
+		print_equip(p->p5->c->equips->e4);
+		printf("\nUNEQUIPPING P1\n");
+		un_equip(p->p1->c, 1);
+		un_equip(p->p1->c, 2);
+		un_equip(p->p1->c, 3);
+		un_equip(p->p1->c, 4);
+		printf("\nUNEQUIPPING P2\n");
+		un_equip(p->p2->c, 1);
+		un_equip(p->p2->c, 2);
+		un_equip(p->p2->c, 3);
+		un_equip(p->p2->c, 4);
+		printf("\nUNEQUIPPING P3\n");
+		un_equip(p->p3->c, 1);
+		un_equip(p->p3->c, 2);
+		un_equip(p->p3->c, 3);
+		un_equip(p->p3->c, 4);
+		printf("\nUNEQUIPPING P4\n");
+		un_equip(p->p4->c, 1);
+		un_equip(p->p4->c, 2);
+		un_equip(p->p4->c, 3);
+		un_equip(p->p4->c, 4);
+		printf("\nUNEQUIPPING P5\n");
+		un_equip(p->p5->c, 1);
+		un_equip(p->p5->c, 2);
+		un_equip(p->p5->c, 3);
+		un_equip(p->p5->c, 4);
+		/*remove_class(p->p1->c);
+		remove_class(p->p2->c);
+		remove_class(p->p3->c);
+		remove_class(p->p4->c);
+		remove_class(p->p5->c);
+		free(p);
+		remove_party(p); DOUBLE FREE*/
+		return 1;
+	}
 
+	clock_t t = clock();
 	int taep = test_all_enemy_parser();
 	int taeqp = test_all_equip_parser();
 	int tacp = test_all_class_parser();
+	int tapue = test_all_party_unequip();
 	printf("\nTEST ALL RESULTS:\n");
 	printf("ENEMY PARSING: ");
 	if(taep == 1)
 	{
-		printf("PASSED\n");
+		printf("PASSED | ");
+		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
 	}
 	else
 	{
@@ -357,7 +441,8 @@ void test_all()
 	printf("EQUIP PARSING: ");
 	if(taeqp == 1)
 	{
-		printf("PASSED\n");
+		printf("PASSED | ");
+		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
 	}
 	else
 	{
@@ -366,7 +451,18 @@ void test_all()
 	printf("CLASS PARSING: ");
 	if(tacp == 1)
 	{
-		printf("PASSED\n");
+		printf("PASSED | ");
+		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
+	}
+	else
+	{
+		printf("FAILED\n");
+	}
+	printf("PARTY EQ/UNEQ: ");
+	if(tapue == 1)
+	{
+		printf("PASSED | ");
+		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
 	}
 	else
 	{
