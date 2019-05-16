@@ -67,6 +67,8 @@ void test_class_parser()
 	printf("Please enter an integer value (see party.txt for line numbers): ");
 	scanf("%d", &val);
 	struct class *c = parse_class("src/party.txt", val);
+	struct equipment *eq = parse_equipment(c,1,1,1,1);
+	c->equips = eq;
 	print_class(c);
 	remove_class(c);
 }
@@ -75,6 +77,8 @@ void test_class_parser()
 void test_class_creator()
 {
 	struct class *c = create_class();
+	struct equipment *eq = parse_equipment(c,1,1,1,1);
+	c->equips = eq;
 	print_class(c);
 	remove_class(c);
 }
@@ -120,12 +124,14 @@ void test_party_parser()
 	remove_party(p);
 }
 
-// Simple Battle Simulation //
+// Simple Battle Simulation (DEPRECATED) //
 void sim()
 {
 	int turn = 1;
 	clock_t t = clock();
 	struct class *l = init_class("Landsknecht", 30, 200, 48, 39, 27, 39, 31, 39);
+	struct equipment *eq = parse_equipment(l,1,1,1,1);
+	l->equips = eq;
 	print_class(l);
 	printf("\n");
 	struct enemy *e = parse_enemy(Golem_e);
@@ -424,15 +430,19 @@ void test_all()
 
 	clock_t t = clock();
 	int taep = test_all_enemy_parser();
+	double en_time = (double)(clock() - t)/CLOCKS_PER_SEC;
 	int taeqp = test_all_equip_parser();
+	double eq_time = (double)(clock() - t)/CLOCKS_PER_SEC;
 	int tacp = test_all_class_parser();
+	double cl_time = (double)(clock() - t)/CLOCKS_PER_SEC;
 	int tapue = test_all_party_unequip();
-	printf("\nTEST ALL RESULTS:\n");
+	double pa_time = (double)(clock() - t)/CLOCKS_PER_SEC;
+	printf("\nTEST ALL RESULTS\n");
 	printf("ENEMY PARSING: ");
 	if(taep == 1)
 	{
 		printf("PASSED | ");
-		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
+		printf("Runtime: %.6fs\n", en_time);
 	}
 	else
 	{
@@ -442,7 +452,7 @@ void test_all()
 	if(taeqp == 1)
 	{
 		printf("PASSED | ");
-		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
+		printf("Runtime: %.6fs\n", eq_time-en_time);
 	}
 	else
 	{
@@ -452,7 +462,7 @@ void test_all()
 	if(tacp == 1)
 	{
 		printf("PASSED | ");
-		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
+		printf("Runtime: %.6fs\n", cl_time-eq_time);
 	}
 	else
 	{
@@ -462,13 +472,12 @@ void test_all()
 	if(tapue == 1)
 	{
 		printf("PASSED | ");
-		printf("Runtime: %.6fs\n", (double)(clock() - t)/CLOCKS_PER_SEC);
+		printf("Runtime: %.6fs\n", pa_time-cl_time);
 	}
 	else
 	{
 		printf("FAILED\n");
 	}
-
 }
 
 // Print Credits //
@@ -476,7 +485,7 @@ void print_credits()
 {
 	printf("Project: EOCurses\n");
 	printf("Description: A port of Etrian Odyssey to curses\n");
-	printf("License: N/A\n");
+	printf("License: GNU General Public License v3.0\n");
 	printf("Author: Alex Barney\n");
 	printf("Website: http://www.alexbarney.xyz\n");
 	printf("Upstream URL: https://github.com/electra13x7777/EOCurses\n");
@@ -517,7 +526,7 @@ int main(int argc, char **argv)
 	printf("7  | Test Class Unequip\n");
 	printf("8  | Test Party Parser\n");
 	printf("9  | Test Music Playback\n");
-	printf("10 | Test Battle Simulation\n");
+	printf("10 | Test Battle Simulation (DEPRECATED)\n");
 	printf("11 | Test Turn Order\n");
 	printf("12 | Test Skill Points\n");
 	printf("13 | Test Adding Exp\n");
