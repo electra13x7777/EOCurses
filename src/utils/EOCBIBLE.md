@@ -41,3 +41,75 @@ Initialization Functions: A Data Structure will be allocated on the heap and giv
 File Parsing Functions: Rather than have one big generic parser that handles all of the program's parsing, each data structure defining file should be able parse its own struct.
 
 Deallocation Functions: Free the structure as well as any members that require deallocation. These may be nested in other structure's functions in order to prevent direct state manipulation from unrelated funtions and structures.
+
+### Dependencies
+EOCurses has a few libraries that it depends on:
+
+   Library    |    GCC flag
+------------- | --------------
+Math Library  | -lm
+POSIX Threads | -lpthread
+OpenAL        | -lopenal
+NCURSES       | -lncurses
+
+Building the binaries requires that you have these on your local machine.
+
+### Style Guide
+
+##### Variables
+
+```c
+int an_integer;
+char *str;
+struct name_of_struct *n;
+
+```
+
+##### Loops
+
+```c
+while(condition)
+{
+
+}
+
+for(cond1; cond2; cond3)
+{
+
+}
+
+do
+{
+
+}
+while(condition);
+```
+
+##### Functions
+
+```c
+// Function: name_of_func
+// Return: return_type
+// Description: brief description of function
+return_type name_of_func(type param1)
+{
+	// STUFF
+}
+```
+
+##### Structs/Enums
+
+```c
+struct name_of_struct
+{
+	type member;
+	type *another_member;
+};
+
+enum
+{
+	FIRST_VAL,
+	SECOND_VAL = 1,
+	Thirdval_e
+};
+```

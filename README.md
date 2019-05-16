@@ -35,6 +35,9 @@ $ ./eoctest.eoc > testallout.txt
 
 *NOTE*: If a test results in a *SEGFAULT* please make a new [issue](https://github.com/electra13x7777/EOCurses/issues) so that I can figure out the problem and get it fixed. If you have relevant test output make sure to include that too.
 
+### Documentation
+Codebase design and documentation can be found [here](https://github.com/electra13x7777/EOCurses/blob/master/src/utils/EOCBIBLE.md). If you are interested in contributing code please consult this markdown file since it goes through how the program is structured.
+
 ### Features
 
 #### Developed (What is currently working but may be reworked)
