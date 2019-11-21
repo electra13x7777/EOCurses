@@ -427,6 +427,18 @@ void test_all()
 		remove_party(p); DOUBLE FREE*/
 		return 1;
 	}
+	printf("\n");
+	int test_all_exp()
+	{
+		test_add_exp();
+		return 1;
+	}
+	printf("\n");
+	int test_all_skill_alloc()
+	{
+		test_skill_points();
+		return 1;
+	}
 
 	clock_t t = clock();
 	int taep = test_all_enemy_parser();
@@ -437,6 +449,10 @@ void test_all()
 	double cl_time = (double)(clock() - t)/CLOCKS_PER_SEC;
 	int tapue = test_all_party_unequip();
 	double pa_time = (double)(clock() - t)/CLOCKS_PER_SEC;
+	int taex = test_all_exp();
+	double ex_time = (double)(clock() - t)/CLOCKS_PER_SEC;
+	int tasa = test_all_skill_alloc();
+	double sa_time = (double)(clock() - t)/CLOCKS_PER_SEC;
 	printf("\nTEST ALL RESULTS\n");
 	printf("ENEMY PARSING: ");
 	if(taep == 1)
@@ -473,6 +489,26 @@ void test_all()
 	{
 		printf("PASSED | ");
 		printf("Runtime: %.6fs\n", pa_time-cl_time);
+	}
+	else
+	{
+		printf("FAILED\n");
+	}
+	printf("TEST EXPALLOC: ");
+	if(taex == 1)
+	{
+		printf("PASSED | ");
+		printf("Runtime: %.6fs\n", ex_time-pa_time);
+	}
+	else
+	{
+		printf("FAILED\n");
+	}
+	printf("SKILL P ALLOC: ");
+	if(tasa == 1)
+	{
+		printf("PASSED | ");
+		printf("Runtime: %.6fs\n", sa_time-ex_time);
 	}
 	else
 	{

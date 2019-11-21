@@ -1843,47 +1843,203 @@ void invest_sp(struct class *c, int pos)
 
 		switch(pos)
 		{
-			case(0):
+			case(0): // hp up
+				if(c->skills[0] < 10)
+				{
+					c->skills[0] += 1;
+					c->sp--;
+				}
 				break;
-			case(1):
+			case(1): // tp up
+				if(c->skills[1] < 10)
+				{
+					c->skills[1] += 1;
+					c->sp--;
+				}
 				break;
-			case(2):
+			case(2): // curses
+				if(c->skills[2] < 10)
+				{
+					c->skills[2] += 1;
+					c->sp--;
+				}
 				break;
-			case(3):
+			case(3): // stagger
+				if(c->skills[12] >= 5 && c->skills[13] >= 5)
+				{
+					if(c->skills[3] < 10)
+					{
+						c->skills[3] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(4):
+			case(4): // sapping
+				if(c->skills[2] >= 1)
+				{
+					if(c->skills[4] < 10)
+					{
+						c->skills[4] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(5):
+			case(5): // fraility
+				if(c->skills[2] >= 1)
+				{
+					if(c->skills[5] < 10)
+					{
+						c->skills[5] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(6):
+			case(6): // leaden
+				if(c->skills[2] >= 1)
+				{
+					if(c->skills[6] < 10)
+					{
+						c->skills[6] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(7):
+			case(7): // blinding
+				if(c->skills[2] >= 2)
+				{
+					if(c->skills[7] < 10)
+					{
+						c->skills[7] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(8):
+			case(8): // relapse
+				if(c->skills[2] >= 3)
+				{
+					if(c->skills[8] < 10)
+					{
+						c->skills[8] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(9):
+			case(9): // cranial
+				if(c->skills[2] >= 5)
+				{
+					if(c->skills[9] < 10)
+					{
+						c->skills[9] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(10):
+			case(10): // abdomen
+				if(c->skills[2] >= 5)
+				{
+					if(c->skills[10] < 10)
+					{
+						c->skills[10] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(11):
+			case(11): // immobile
+				if(c->skills[2] >= 5)
+				{
+					if(c->skills[11] < 10)
+					{
+						c->skills[11] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(12):
+			case(12): // torpor
+				if(c->skills[2] >= 6)
+				{
+					if(c->skills[12] < 10)
+					{
+						c->skills[12] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(13):
+			case(13): // corrupt
+				if(c->skills[2] >= 7)
+				{
+					if(c->skills[13] < 10)
+					{
+						c->skills[13] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(14):
+			case(14): // revenge
+				if(c->skills[13] == 10)
+				{
+					if(c->skills[14] < 10)
+					{
+						c->skills[14] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(15):
+			case(15): // evil_eye
+				if(c->skills[2] == 10)
+				{
+					if(c->skills[15] < 10)
+					{
+						c->skills[15] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(16):
+			case(16): // paralyze
+				if(c->skills[15] >= 3)
+				{
+					if(c->skills[16] < 10)
+					{
+						c->skills[16] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(17):
+			case(17): // betrayal
+				if(c->skills[15] >= 5)
+				{
+					if(c->skills[17] < 10)
+					{
+						c->skills[17] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(18):
+			case(18): // suicide
+				if(c->skills[15] == 10)
+				{
+					if(c->skills[18] < 10)
+					{
+						c->skills[18] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(19):
+			case(19): // lure
+				if(c->skills[15] >= 1)
+				{
+					if(c->skills[19] < 10)
+					{
+						c->skills[19] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(20):
+			case(20): // mine
+				if(c->skills[20] < 10)
+				{
+					c->skills[20] += 1;
+					c->sp--;
+				}
 				break;
 		}
 	}
@@ -1892,47 +2048,200 @@ void invest_sp(struct class *c, int pos)
 
 		switch(pos)
 		{
-			case(0):
+			case(0): // pr_hp_up
+				if(c->skills[0] < 10)
+				{
+					c->skills[0] += 1;
+					c->sp--;
+				}
 				break;
-			case(1):
+			case(1): // pr_tp_up
+				if(c->skills[1] < 10)
+				{
+					c->skills[1] += 1;
+					c->sp--;
+				}
 				break;
-			case(2):
+			case(2): // pr_def_up
+				if(c->skills[2] < 10)
+				{
+					c->skills[2] += 1;
+					c->sp--;
+				}
 				break;
-			case(3):
+			case(3): // shields
+				if(c->skills[3] < 10)
+				{
+					c->skills[3] += 1;
+					c->sp--;
+				}
 				break;
-			case(4):
+			case(4): // aegis
+				if(c->skills[2] >= 5)
+				{
+					if(c->skills[4] < 10)
+					{
+						c->skills[4] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(5):
+			case(5): // en_guarde
+				if(c->skills[2] >= 7 && c->skills[3] >= 7)
+				{
+					if(c->skills[5] < 10)
+					{
+						c->skills[5] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(6):
+			case(6): // provoke
+				if(c->skills[2] >= 1)
+				{
+					if(c->skills[6] < 10)
+					{
+						c->skills[6] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(7):
+			case(7): // pr_flee
+				if(c->skills[2] >= 3)
+				{
+					if(c->skills[7] < 10)
+					{
+						c->skills[7] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(8):
+			case(8): // parry
+				if(c->skills[2] >= 3)
+				{
+					if(c->skills[8] < 10)
+					{
+						c->skills[8] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(9):
+			case(9): // fortify
+				if(c->skills[2] >= 3 && c->skills[3] >= 3)
+				{
+					if(c->skills[9] < 10)
+					{
+						c->skills[9] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(10):
+			case(10): // defender
+				if(c->skills[11] >= 3 && c->skills[12] >= 3)
+				{
+					if(c->skills[10] < 10)
+					{
+						c->skills[10] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(11):
+			case(11): // f_guard
+				if(c->skills[3] >= 1)
+				{
+					if(c->skills[11] < 10)
+					{
+						c->skills[11] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(12):
+			case(12): // b_guard
+				if(c->skills[3] >= 1)
+				{
+					if(c->skills[12] < 10)
+					{
+						c->skills[12] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(13):
+			case(13): // antifire
+				if(c->skills[1] >= 3 && c->skills[3] >= 5)
+				{
+					if(c->skills[13] < 10)
+					{
+						c->skills[13] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(14):
+			case(14): // antivolt
+				if(c->skills[1] >= 3 && c->skills[3] >= 5)
+				{
+					if(c->skills[14] < 10)
+					{
+						c->skills[14] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(15):
+			case(15): // anticold
+				if(c->skills[1] >= 3 && c->skills[3] >= 5)
+				{
+					if(c->skills[15] < 10)
+					{
+						c->skills[15] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(16):
+			case(16): // smite
+				if(c->skills[1] == 10 && c->skills[9] >= 5)
+				{
+					if(c->skills[16] < 10)
+					{
+						c->skills[16] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(17):
+			case(17): // pr_cure
+				if(c->skills[0] >= 3)
+				{
+					if(c->skills[17] < 10)
+					{
+						c->skills[17] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(18):
+			case(18): // pr_cure2
+				if(c->skills[0] >= 5)
+				{
+					if(c->skills[18] < 10)
+					{
+						c->skills[18] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(19):
+			case(19): // pr_stalker
+				if(c->skills[2] >= 5)
+				{
+					if(c->skills[19] < 10)
+					{
+						c->skills[19] += 1;
+						c->sp--;
+					}
+				}
 				break;
-			case(20):
+			case(20): // pr_mine
+				if(c->skills[20] < 10)
+				{
+					c->skills[20] += 1;
+					c->sp--;
+				}
 				break;
 		}
 	}
