@@ -60,7 +60,7 @@ void 2_hit(struct class *c); // normal weapon attacks have a chance of hitting t
 void war_cry(struct class *c); // increase attack power at the expense of defense
 void hell_cry(struct class *c); // abandon defense and stamina for greatly strength attack
 void arm_heal(struct class *c); // regain the use of bound arms
-void flee(struct class *c); // sacrifice HP to escape from battle to the previous floor
+void la_flee(struct class *c); // sacrifice HP to escape from battle to the previous floor
 void cleaver(struct class *c, struct enemy *e); // a rushing sword slash
 void tornado(struct class *c, struct enemy *e); // a whirling sword skill that strikes adjacent enemies
 void allslash(struct class *c); // a sword skill that hits a group of enemies 2-4 times
@@ -140,3 +140,72 @@ void cpr(struct class *c); // chance for entire party to survive mortal blows wi
 void revive(struct class *c); // revive party member from the dead
 void h_touch(struct class *c); // healing for a party member outside battle for small TP
 void me_chop(struct class *c); // Chop wood for materials at item points
+
+// Ronin
+void ro_hp_up(struct class *c); // increases ro HP
+void ro_tp_up(struct class *c); // increases ro TP
+void ro_atk_up(struct class *c); // increases ro ATK
+void katanas(struct class *c); // increases katana damage
+void sight(struct class *c); // increases katana damage at night/whenblind
+void crit_up(struct class *c); // increases crit chance
+void ibuki(struct class *c);
+void kesagiri(struct class *c);
+void overhead(struct class *c);
+void zamba(struct class *c);
+void midareba(struct class *c);
+void orochi(struct class *c);
+void seigan(struct class *c);
+void mikiri(struct class *c);
+void koteushi(struct class *c);
+void raizuki(struct class *c);
+void iai(struct class *c);
+void kubiuchi(struct class *c);
+void gatotsu(struct class *c);
+void hyosetsu(struct class *c);
+void ro_mine(struct class *c);
+
+// Hexer
+void he_hp_up(struct class *c); // increases he HP
+void he_tp_up(struct class *c); // increases he TP
+void curses(struct class *c)
+void stagger(struct class *c)
+void sapping(struct class *c)
+void fraility(struct class *c)
+void leaden(struct class *c)
+void binding(struct class *c)
+void relapse(struct class *c)
+void cranial(struct class *c)
+void abdomen(struct class *c)
+void immobile(struct class *c)
+void torpor(struct class *c)
+void corrupt(struct class *c)
+void revenge(struct class *c)
+void evil_eye(struct class *c)
+void paralyze(struct class *c)
+void betrayal(struct class *c)
+void suicide(struct class *c)
+void lure(struct class *c)
+void mine(struct class *c)
+
+// Protector
+void pr_hp_up(struct class *c); // increases he HP
+void pr_tp_up(struct class *c); // increases he TP
+void pr_def_up(struct class *c); // increases pr def
+void shields(struct class *c)
+void aegis(struct class *c)
+void en_guard(struct class *c)
+void provoke(struct class *c)
+void pr_flee(struct class *c)
+void parry(struct class *c)
+void fortify(struct class *c)
+void defender(struct class *c)
+void f_guard(struct class *c)
+void b_guard(struct class *c)
+void antifire(struct class *c)
+void antivolt(struct class *c)
+void anticold(struct class *c)
+void smite(struct class *c)
+void pr_cure(struct class *c)
+void pr_cure2(struct class *c)
+void pr_stalker(struct class *c)
+void mine(struct class *c)
